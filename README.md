@@ -5,7 +5,8 @@ Visualizing and modeling the correlation between features in New York Department
 
 ![alt text](https://github.com/gdivanov/NYC-Housing/blob/master/Figure_1_Scatter_(SalePrice-Land).png)
 
-``#Importing modules and packages
+```
+#Importing modules and packages
 import pandas as pd
 from pandas.tools.plotting import scatter_matrix 
 from scipy.stats import gaussian_kde
@@ -162,4 +163,4 @@ plt.xticks(rotation=90)
 plt.title('Correlation Matrix for New York Housing Variables 2017-2018')
 plt.tight_layout()
 plt.show()
-``
+```
