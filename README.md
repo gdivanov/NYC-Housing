@@ -25,22 +25,18 @@ from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split 
 from sklearn.model_selection import GridSearchCV
 
-# Data Scaler
+#Modeling tool imports
 from sklearn.preprocessing import StandardScaler
-
-# Regression
 from sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import Ridge
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import ElasticNet
-
-# Metrics
 from sklearn import metrics
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
 
-data = pd.read_csv('C:\\Users\\Grisha\\Documents\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv')
+data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv')
 
 #Remaning columns for convenience
 price = 'SALE PRICE'
