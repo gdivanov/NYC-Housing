@@ -32,9 +32,12 @@ from sklearn import metrics
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
 
+#Upload data set
 data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv')
 
-#Remaning columns for convenience
+#Data Cleaning-----------------------------------------------
+
+#Renamaning columns for convenience
 price = 'SALE PRICE'
 gross = 'GROSS SQUARE FEET'
 land = 'LAND SQUARE FEET'
@@ -45,44 +48,41 @@ built = 'YEAR BUILT'
 #Matching location data in BOROUGH to numerical values
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
 
-#SALE PRICE is object but should be numeric
-data[price] = pd.to_numeric(data[price], errors='coerce')
+#Drop entire columns of EASE-MENT and Unnamed: 0 because they are empty
+del data['EASE-MENT']
+del data['Unnamed: 0']
 
-#LAND and GROSS SQUARE FEET is object but should be numeric
+#Giving all object-oriented data numerical values for analysis
+data[price] = pd.to_numeric(data[price], errors='coerce')
 data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
-
-#SALE DATE is object but should be datetime
 data[date] = pd.to_datetime(data[date], errors='coerce')
 
 #Delete the duplicates and null-space data in SALE PRICE
 data = data.drop_duplicates(data.columns, keep='last')
-
-#Drop entire columns of EASE-MENT and Unnamed: 0 because they are empty
-del data['EASE-MENT']
-del data['Unnamed: 0']
 
 #Drop all null cases for our most important features; SALE PRICE, LAND SQUARE FEET AND GROSS SQUARE FEET
 data = data[data[land].notnull()] 
 data = data[data[gross].notnull()] 
 data = data[data[price].notnull()]
 
-#Drop all SALE PRICE values outside a $100,000 to $4,000,000 range
+#Drop all SALE PRICE outlier values outside a $100,000 to $4,000,000 range for better data fit in visualization
 data = data[(data[price] > 100000) & (data[price] < 4000000)]
 
 #Drop all 0 YEAR BUILT values
 data = data[data[built] > 0]
 
-#Create AGE OF BUILDING to make 
+#Create AGE OF BUILDING to make visualization more meaningful
 age = 'AGE OF BUILDING'
 data[age] = 2017 - data[built]
 
+#Dropping 0 TOTAL UNITS values and deleting outliers in TOTAL UNITS that are above 60
+data = data[(data['TOTAL UNITS'] > 0) & (data['TOTAL UNITS'] < 60)] 
 
-
-data = data[(data['TOTAL UNITS'] > 0) & (data['TOTAL UNITS'] < 50)] 
-
+#Dropping data where TOTAL NUTS are not a sum of either COMMERCIAL or RESIDENTIAL
 data = data[data['TOTAL UNITS'] == data['COMMERCIAL UNITS'] + data['RESIDENTIAL UNITS']]
 
+#Visualization ------------------------------------------
 
 #Plot SALE PRICE Histogram for total range
 plt.figure()
@@ -131,24 +131,22 @@ kde.set(xlabel='Sale Price (USD)')
 kde.set(ylabel='Unit Probability')
 plt.savefig('fig5.pdf')
 
-# Correlation Matrix
-
-# Compute the correlation matrix
+#Compute the correlation matrix
 sns.set(font_scale=2.1)
 d = data[['RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS','GROSS SQUARE FEET','SALE PRICE', 'AGE OF BUILDING', 'LAND SQUARE FEET']]
 corr = d.corr()
 
-# Generate a mask for the upper triangle
+#Generate entries of zeros for the upper triangle
 mask = np.zeros_like(corr, dtype=np.bool)
 mask[np.triu_indices_from(mask)] = True
 
-# Set up the matplotlib figure
+#Setting the figure
 f, ax = plt.subplots(figsize=(70, 16))
 
-# Generate a custom diverging colormap
+#Generate diverging colormap
 cmap = sns.diverging_palette(220, 20, sep=20, as_cmap=True)
 
-# Draw the heatmap with the mask and correct aspect ratio
+#Heatmap with the zeros and correct aspect ratio
 sns.heatmap(corr, mask=mask, square=True, linewidths=.5, annot=True, cmap=cmap)
 plt.yticks(rotation=0)
 plt.xticks(rotation=90)
