@@ -1,10 +1,10 @@
-# NYC-Housing
+# NYC-Housing Predictions
 Visualizing and modeling the correlation between features in New York Department of Finance data set.
 
 We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
 Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
 
-# Modules
+## Modules
 
 First we import the modules in Python we want to use.
 
@@ -46,7 +46,7 @@ Next we want to upload our data set which can be found at: https://www1.nyc.gov/
 #Upload data set
 data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv')
 ```
-I'm going to type the words 'SALE PRICE' along with the other important features in our set 
+Since I'm going to type the words 'SALE PRICE' along with the other features of interest in our set **a lot** I'm going to use new names as placeholders to make it faster to do dataframe cleaning.
 
 ```
 #Data Cleaning-----------------------------------------------
@@ -58,7 +58,9 @@ land = 'LAND SQUARE FEET'
 location = 'BOROUGH'
 date = 'SALE DATE'
 built = 'YEAR BUILT'
-
+```
+The data collector mentions that 
+```
 #Matching location data in BOROUGH to numerical values
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
 
