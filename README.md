@@ -1,5 +1,5 @@
 # NYC-Housing
-Visualizing and modeling the correlation between features in New York Department of Finance data set
+Visualizing and modeling the correlation between features in New York Department of Finance data set.
 
 We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
 Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
