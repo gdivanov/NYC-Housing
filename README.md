@@ -1,6 +1,9 @@
 # NYC-Housing
 Visualizing and modeling the correlation between features in New York Department of Finance data set
 
+We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
+Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
+
 ```
 #Importing modules and packages
 import pandas as pd
@@ -31,7 +34,9 @@ from sklearn.linear_model import ElasticNet
 from sklearn import metrics
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
+```
 
+```
 #Upload data set
 data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv')
 
