@@ -63,7 +63,9 @@ data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
 data[date] = pd.to_datetime(data[date], errors='coerce')
 
-#Delete the duplicates and null-space data in SALE PRICE
+#Delete the duplicates and null-space data
+
+#Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
 
 #Drop all null cases for our most important features; SALE PRICE, LAND SQUARE FEET AND GROSS SQUARE FEET
