@@ -296,6 +296,17 @@ So we've finally arrived at our final destination - training and testing the mod
 ```
 #Split the data
 training, testing = train_test_split(data, test_size=0.2, random_state=0)
-print("Total sample size = %i; training sample size = %i, testing sample size = %i"\
+print("Total Data Set = %i; Training Set = %i, Testing Set = %i"\
      %(data.shape[0],training.shape[0],testing.shape[0]))
+```
+
+```
+#
+df_train = training.loc[:,data.columns]
+X_train = df_train.drop([price], axis=1)
+y_train = df_train.loc[:, [price]]
+
+df_test = testing.loc[:,data.columns]
+X_test = df_test.drop([price], axis=1)
+y_test = df_test.loc[:, [price]]
 ```
