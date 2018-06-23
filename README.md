@@ -192,24 +192,22 @@ plt.title('Sale Price Distribution by Location')
 plt.show()
 ```
 
-## IV) Modeling the Data
+## IV) Preparing & Modeling the Data
 ### Standardization of Varying Numerical Data
+
+Finally, the 'cool' part.
 
 Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
 
-This will help our ML tools in Scikit-Learn perform better because if we've scale our features our models will converge faster - hopefully.
+This will help our ML tools in Scikit-Learn perform better because if we've scaled our features our models will converge faster - at least that's the hope.
 
 However, out of interest we won't be standardizing our Logistic Regression model.
 
-```
-
-```
-Scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
+One thing to note is that scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
 
 The minimum column Sale Price value is not zero so we can skip adding a 1 to it as it won't make a difference in our logarithmic scaling.
 
 ```
-
 #Add 1 to all numerical data other than SALE PRICE
 data[commercial] = data[commercial] + 1
 data[residential] = data[residential] + 1
@@ -236,7 +234,7 @@ data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
 #Plot the new Standardized SALE PRICE
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
-plt.show(
+plt.show()
 ```
 
 ### One Hot Encoding for Categorical Data
@@ -285,4 +283,14 @@ data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
+```
+### Train-Test Splitting
+
+So we've finally arrived at our final destination - training and testing the models. Our data is now ready to be split into the respecting training and testing populations. General rule of thumb is that 80/20 is a good starting point, however, checking our data points we see how many we have to work with now that we've deleted a large population.
+
+```
+#Split the data
+training, testing = train_test_split(data, test_size=0.2, random_state=0)
+print("Total sample size = %i; training sample size = %i, testing sample size = %i"\
+     %(data_model.shape[0],training.shape[0],testing.shape[0]))
 ```
