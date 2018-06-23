@@ -208,3 +208,8 @@ The one hot encoding transforms the categories as integers 1, 2, 3, 4, and then 
 
 This would be a one family home in Brooklyn.
 
+### Preparing the One Hot Encoding
+
+```
+#Splitting categorical data into seperate vector
+one_hot_data = [location, build_class]
