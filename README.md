@@ -331,13 +331,13 @@ We choose k = 5, k = 7, and k = 10 to fit the best result.
 ### Linear Regression Modelling
 
 It's very __'fitting'__ if we begin with the most common regression model - Linear Regression. 
+
 ```
 #Fit Linear Regressor to training data
-LinearRegression.fit(X_train, y_train)
+linreg = LinearRegression()
+linreg.fit(X_train, y_train)
 
-#Predict SALE PRICE labels and 
+#Predict SALE PRICE labels and compute 5-Fold Cross-Validation
 y_pred = linreg.predict(X_test)
-
-# Compute 5-fold cross-validation scores: cv_scores
-cv_scores_linreg = cross_val_score(linreg, X_train_s, y_train_s, cv=5)
+cv_scores_linreg = cross_val_score(linreg, X_train, y_train, cv=5)
 ```
