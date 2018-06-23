@@ -291,7 +291,11 @@ plt.show()
 ```
 ### Train-Test Splitting
 
-So we've finally arrived at our final destination - training and testing the models. Our data is now ready to be split into the respecting training and testing populations. General rule of thumb is that 80/20 is a good starting point, however, checking our data points we see how many we have to work with now that we've deleted a large population.
+So we've arrived at our final destination - training and testing the models. 
+
+Dear god, yes.
+
+Our data is now ready to be split into the respecting training and testing populations. General rule of thumb is that 80/20 is a good starting point, however, checking our data points we see how many we have to work with now that we've deleted a large population.
 
 ```
 #Split the data
@@ -299,7 +303,8 @@ training, testing = train_test_split(data, test_size=0.2, random_state=0)
 print("Total Data Set = %i; Training Set = %i, Testing Set = %i"\
      %(data.shape[0],training.shape[0],testing.shape[0]))
 ```
-
+So, okay, we have a decently sized pool. But, we do want to also test a 75/25 out just for fun to see what happens later.
+First, we want to 
 ```
 #
 df_train = training.loc[:,data.columns]
