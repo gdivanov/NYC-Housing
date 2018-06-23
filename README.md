@@ -319,7 +319,6 @@ df_test = testing.loc[:,data.columns]
 X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
 ```
-
 ### Modelling & Choosing the "k" in K-Fold 
 
 Before we begin running our data through we need to choose a k value for a cross-validation. Having a higher k value means that more iterations will take place at a lower sample size. So it's a trade-off.
@@ -328,7 +327,7 @@ On one hand if we have a higher k value then we have a higher computational time
 
 We choose k = 5, k = 7, and k = 10 to fit the best result.
 
-### Linear Regression Modelling
+### Linear Regression Model
 
 It's very __'fitting'__ if we begin with the most common regression model - Linear Regression. 
 
@@ -340,4 +339,15 @@ linreg.fit(X_train, y_train)
 #Predict SALE PRICE labels and compute 5-Fold Cross-Validation
 y_pred = linreg.predict(X_test)
 cv_scores_linreg = cross_val_score(linreg, X_train, y_train, cv=5)
+```
+Computing our coefficient of determination (R^2), Root Mean Square Error, and Mean of the CV-Score we get:
+
+```
+print("R^2: {}".format(linreg.score(X_test, y_test)))
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+print("Root Mean Squared Error: {}".format(rmse))
+
+print("Mean 5-Fold CV Score: {}".format(np.mean(cv_scores_linreg)))
+# Print the 5-fold cross-validation scores
+print(cv_scores_linreg)
 ```
