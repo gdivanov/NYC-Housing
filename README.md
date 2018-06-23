@@ -374,7 +374,14 @@ for a in alphas:
     ridge.fit(X, y)
     coefs.append(ridge.coef_)
 np.shape(coefs)
-
     
 ```
 
+```
+ax = plt.gca()
+ax.plot(alphas, coefs)
+ax.set_xscale(’log’)
+plt.axis(’tight’)
+plt.xlabel(’alpha’)
+plt.ylabel(’weights’)
+```
