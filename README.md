@@ -51,30 +51,35 @@ data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv'
 Since I'm going to type the words 'SALE PRICE' along with the other features of interest in our set **a lot** I'm going to use new names as placeholders to make it faster to do dataframe cleaning.
 
 ```
-#Renamaning columns for convenience
+#Remaning columns for convenience
 price = 'SALE PRICE'
 gross = 'GROSS SQUARE FEET'
 land = 'LAND SQUARE FEET'
 location = 'BOROUGH'
 date = 'SALE DATE'
 built = 'YEAR BUILT'
+age = 'AGE OF BUILDING'
+residential = 'RESIDENTIAL UNITS'
+build_class = 'BUILDING CLASS CATEGORY'
 ```
-The data collector mentions that 
+The data collector mentions that they've listed the city locations in BOROUGH as 1 = Manhattan, 2 = Bronx, 3 = Brooklyn, 4 = Queens, and 5 = Staten Island. So we rename these values inside the dataframe to match that.
 ```
 #Matching location data in BOROUGH to numerical values
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
-
-#Drop entire columns of EASE-MENT and Unnamed: 0 because they are empty
-del data['EASE-MENT']
-del data['Unnamed: 0']
-
-#Giving all object-oriented data numerical values for analysis
+```
+Although some of the data might be interesting as a side project I'm really only interested in modeling a few notable features in our data set. Next, I split all the data of interest
+```
+#Splitting the variables out that we are interested in modeling
+columns = [location, commercial, residential, gross, land, age, build_class, price]
+data = data.loc[:,columns]
+```
+Doing some inspection to the data already shows that it came pre-processed as mostly categorical stuff - which we can't use because we can't do mathematical operations on it. We change all objects to numerical values for analysis.
+```
+#Change objects to numerals
 data[price] = pd.to_numeric(data[price], errors='coerce')
 data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
 data[date] = pd.to_datetime(data[date], errors='coerce')
-
-#Delete the duplicates and null-space data
 
 #Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
