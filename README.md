@@ -366,13 +366,15 @@ For Ridge Regression we must choose a suitible value for our regularization para
 #Create array of alpha values to test upon
 alphas = 10**np.linspace(10,-2,100)*0.5
 
-#
+#Create Ridge Regressor
 ridge = Ridge(normalize=True)
+
+#Store coefficients into array
 coefs = []
 for a in alphas:
-ridge.set_params(alpha=a)
-ridge.fit(X, y)
-coefs.append(ridge.coef_)
+    ridge.set_params(alpha=a)
+    ridge.fit(X, y)
+    coefs.append(ridge.coef_)
 np.shape(coefs)
 
     
