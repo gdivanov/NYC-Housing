@@ -195,9 +195,21 @@ plt.show()
 ## IV) Modeling the Data
 ### Standardization of Varying Numerical Data
 
-Because we are utilizing regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
+Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
 
-However, we will not standardize our Logistic Regression model and see the results.
+This will help our ML tools in Scikit-Learn perform better because if we've scale our features our models will converge faster - hopefully.
+
+However, out of interest we won't be standardizing our Logistic Regression model.
+
+```
+#Standardizing and transforming into logarithmic scale
+data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
+
+#Plot the new Standardized SALE PRICE
+sns.distplot(data[price])
+plt.title('Standardized Histogram of Sale Price')
+plt.show()
+```
 
 ### One Hot Encoding for Categorical Data
 
@@ -218,15 +230,31 @@ This would be a one family home in Brooklyn.
 
 ### Preparing the One Hot Encoding
 
-We know there are 5 unique locations and 31 building class categories. Therefore, we take the categorical data into a new vector and begin encoding using Pandas' get_dummies operator which transform categorical data into indicators of a new dataframe.
+We know there are 5 unique locations and 31 building class categories. Therefore, we take the categorical data into a new vector and begin encoding using Pandas' get_dummies operator which transform categorical data into indicators and into a new dataframe.
+```
+#Standardizing and transforming into logarithmic scale
+data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-1,1))
+
+#Plot the new Standardized SALE PRICE
+sns.distplot(data[price])
+plt.title('Standardized Histogram of Sale Price')
+plt.show()
+
+
 ```
 #Splitting categorical data
 one_hot_data = [location, build_class]
 
-#Encoding the data
+#Encoding and updating the data
 one_hot_encoded = pd.get_dummies(data[one_hot_data])
-one_hot_encoded.info(verbose=True, memory_usage=True, null_counts=True)
+one_hot_encoded.info(verbose=True, null_counts=True)
+data = data.drop(one_hot_features, axis=1)
+data = pd.concat([data, one_hot_encoded], axis=1)
 
-#Delete the old columns...
-data = data_model.drop(one_hot_features, axis=1)
-data = pd.concat([data_model, one_hot_encoded], axis=1)
+#Standardizing and transforming into logarithmic scale
+data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-1,1))
+
+#Plot the new Standardized SALE PRICE
+sns.distplot(data[price])
+plt.title('Standardized Histogram of Sale Price')
+plt.show()
