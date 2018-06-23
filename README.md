@@ -68,9 +68,7 @@ data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brookly
 ```
 Although some of the data might be interesting as a side project I'm really only interested in modeling a few notable features in our data set.
 ```
-#Splitting the variables out that we are interested in modeling
-columns = [location, commercial, residential, gross, land, age, build_class, price]
-data = data.loc[:,columns]
+
 ```
 Doing some inspection to the data already shows that it came pre-processed as mostly categorical stuff - which we can't use because we can't do mathematical operations on it. We change all objects to numerical values for analysis.
 ```
@@ -302,23 +300,31 @@ Dear god, yes.
 
 Our data is now ready to be split into the respecting training and testing populations. General rule of thumb is that 80/20 is a good starting point, however, checking our data points we see how many we have to work with now that we've deleted a large population.
 
+Also, I'm only really interested in passing through specific features into our models for predictions.
+
+```
+#Splitting the variables out that we are interested in modeling
+columns = [location, commercial, residential, gross, land, age, build_class, price]
+data_mod = data.loc[:,columns]
+```
+Now we have the data we want so let's split it into training and validation samples.
 ```
 #Split the data
-training, testing = train_test_split(data, test_size=0.2, random_state=0)
+training, testing = train_test_split(data_mod, test_size=0.2, random_state=0)
 print("Total Data Set = %i; Training Set = %i, Testing Set = %i"\
      %(data.shape[0],training.shape[0],testing.shape[0]))
 ```
-So, okay, we have a decently sized pool. But, we do want to also test a 75/25 out just for fun to see what happens. We'll save that for a later investigation and continue with our first run.
+Okay, we have a decently sized pool. We could also test 75/25 or any variant around 80-70/30-20 but we'll save that for another project.
 
 We're now ready to choose the SALE PRICE as our target set (y) and the rest of the features as our training set (X). We also want to choose our validation set in the same way.
 ```
 #Choosing training set
-df_train = training.loc[:,data.columns]
+df_train = training.loc[:,data_mod.columns]
 X_train = df_train.drop([price], axis=1)
 y_train = df_train.loc[:, [price]]
 
 #Choosing validation set
-df_test = testing.loc[:,data.columns]
+df_test = testing.loc[:,data_mod.columns]
 X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
 ```
@@ -368,8 +374,9 @@ alphas = 10**np.linspace(10,-2,100)*0.5
 #Create Ridge Regressor
 ridge = Ridge()
 
-X = data_model.drop([price], axis=1)
-y = data_model.loc[:, price]
+#Create X and y 
+X = data_mod.drop([price], axis=1)
+y = data_mod.loc[:, price]
 
 #Store coefficients into array
 coefs = []
