@@ -202,18 +202,43 @@ This will help our ML tools in Scikit-Learn perform better because if we've scal
 However, out of interest we won't be standardizing our Logistic Regression model.
 
 ```
+
+```
+Scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
+
+The minimum column Sale Price value is not zero so we can skip adding a 1 to it as it won't make a difference in our logarithmic scaling.
+
+```
+
+#Add 1 to all numerical data other than SALE PRICE
+data[commercial] = data[commercial] + 1
+data[residential] = data[residential] + 1
+data[gross] = data[gross] + 1
+data[land] = data[land] + 1
+data[age] = data[age] + 1
+
+#Standardizing and transforming into logarithmic scale
+data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
+data[commercial] = StandardScaler().fit_transform(np.log(data[commercial]).reshape(-1,1))
+data[residential] = StandardScaler().fit_transform(np.log(data[residential]).reshape(-1,1))
+data[gross] = StandardScaler().fit_transform(np.log(data[gross]).reshape(-1,1))
+data[land] = StandardScaler().fit_transform(np.log(data[land]).reshape(-1,1))
+data[age] = StandardScaler().fit_transform(np.log(data[age]).reshape(-1,1))
+
+#Plot the new Standardized SALE PRICE
+sns.distplot(data[price])
+plt.title('Standardized Histogram of Sale Price')
+plt.show(
+```
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
 
 #Plot the new Standardized SALE PRICE
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
-plt.show()
+plt.show(
+
 ```
-Scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we must shift __all__ our data by +1 to make up for this - which will make sure our data's behaviour stays in tact.
-
-
-
 ### One Hot Encoding for Categorical Data
 
 We also want to include the categorical data in our model - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read.
