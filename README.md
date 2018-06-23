@@ -200,7 +200,7 @@ plt.show()
 ## IV) Tranforming Data for Modelling
 ### Standardization of Varying Numerical Data
 
-Finally, the 'cool' part.
+We're almost at the 'cool' part.
 
 Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
 
