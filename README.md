@@ -268,8 +268,6 @@ sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
 ```
-
-```
 #Splitting categorical data
 one_hot_data = [location, build_class]
 
