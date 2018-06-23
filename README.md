@@ -320,10 +320,13 @@ X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
 ```
 
-### Modelling & Coosing K-Fold 
+### Modelling & Choosing the "k" in K-Fold 
 
-Before we begin running our data through we need to choose a k value for a cross-validation. Having a higher k value means that 
+Before we begin running our data through we need to choose a k value for a cross-validation. Having a higher k value means that more iterations will take place at a lower sample size. So it's a trade-off.
 
+On one hand if we have a higher k value then we have a higher computational time, higher variance, and lower bias. If we have a smaller k value then we have a lower computational time, lower variance, and higher bias.
+
+We choose k = 5, k = 7, and k = 10 to fit the best result.
 
 ### Linear Regression Modelling
 
