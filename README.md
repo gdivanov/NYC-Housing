@@ -210,6 +210,9 @@ sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
 ```
+Scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we must shift __all__ our data by +1 to make up for this - which will make sure our data's behaviour stays in tact.
+
+
 
 ### One Hot Encoding for Categorical Data
 
@@ -239,7 +242,7 @@ data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
-
+```
 
 ```
 #Splitting categorical data
