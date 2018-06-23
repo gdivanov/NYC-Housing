@@ -171,4 +171,24 @@ plt.xticks(rotation=90)
 plt.title('Correlation Matrix for New York Housing Variables 2017-2018')
 plt.tight_layout()
 plt.show()
+
+#Plot regression for square feet and price
+sns.regplot(x=gross, y=price, data=data, fit_reg=False, scatter_kws={'alpha':0.3}, logistic=True)
+plt.title('Gross Square Feet vs Sale Price')
+plt.show()
+
+#Plot regression for age and price
+sns.regplot(x=age, y=price, data=data, fit_reg=False, scatter_kws={'alpha':0.1}, logistic=True)
+plt.title('Sale Price Distribution by Building Age')
+plt.show()
+
+#Plot location
+sns.boxplot(x=location, y=price, data=data)
+plt.title('Sale Price Distribution by Location')
+plt.show()
 ```
+
+## Modeling the Data
+### Standardization of Varying Numerical Data and One-Hot-Encoding for Categorical Data
+
+Because we are utilizing regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units - we need to be working with standardized data. This means we need to center our distribution along a zero mean 
