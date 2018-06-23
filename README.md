@@ -189,8 +189,22 @@ plt.show()
 ```
 
 ## Modeling the Data
-### Standardization of Varying Numerical Data and One-Hot-Encoding for Categorical Data
+### Standardization of Varying Numerical Data and One Hot Encoding for Categorical Data
 
 Because we are utilizing regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
 
-However, we also want to look at the categorical data - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read. 
+However, we also want to look at the categorical data - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read.
+
+For example we can show how this works by looking at 2 Locations and 2 Building Class Categories in a vector like so:
+
+```
+["Bronx", "Brooklyn", "ONE FAMILY DWELLINGS", "OFFICE BUILDING"]
+```
+The one hot encoding transforms the categories as integers 1, 2, 3, 4, and then maps them to a binary vector of a 1 or a 0, say:
+
+```
+[0, 1, 1, 0]
+```
+
+This would be a one family home in Brooklyn.
+
