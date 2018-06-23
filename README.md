@@ -229,7 +229,7 @@ data[age] = StandardScaler().fit_transform(np.log(data[age]).reshape(-1,1))
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show(
-```
+
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
 
@@ -237,8 +237,8 @@ data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show(
-
 ```
+
 ### One Hot Encoding for Categorical Data
 
 We also want to include the categorical data in our model - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read.
@@ -259,6 +259,7 @@ This would be a one family home in Brooklyn.
 ### Preparing the One Hot Encoding
 
 We know there are 5 unique locations and 31 building class categories. Therefore, we take the categorical data into a new vector and begin encoding using Pandas' get_dummies operator which transform categorical data into indicators and into a new dataframe.
+
 ```
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-1,1))
@@ -267,7 +268,7 @@ data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
-```
+
 #Splitting categorical data
 one_hot_data = [location, build_class]
 
@@ -284,3 +285,4 @@ data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
+```
