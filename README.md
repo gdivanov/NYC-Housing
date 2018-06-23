@@ -25,13 +25,13 @@ import warnings
 warnings.filterwarnings('ignore')
 import matplotlib.style as style
 
+#Modeling tool imports
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split 
 from sklearn.model_selection import GridSearchCV
-
-#Modeling tool imports
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression 
+from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import Ridge
 from sklearn.ensemble import RandomForestRegressor
@@ -210,6 +210,15 @@ This would be a one family home in Brooklyn.
 
 ### Preparing the One Hot Encoding
 
+We know there are 5 unique locations and 31 building class categories. Therefore, we take the categorical data into a new vector and begin encoding using Pandas' get_dummies operator which transform categorical data into indicators of a new dataframe.
 ```
-#Splitting categorical data into seperate vector
+#Splitting categorical data
 one_hot_data = [location, build_class]
+
+#Encoding the data
+one_hot_encoded = pd.get_dummies(data[one_hot_data])
+one_hot_encoded.info(verbose=True, memory_usage=True, null_counts=True)
+
+#Delete the old columns...
+data = data_model.drop(one_hot_features, axis=1)
+data = pd.concat([data_model, one_hot_encoded], axis=1)
