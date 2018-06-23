@@ -96,7 +96,6 @@ data = data[(data[price] > 100000) & (data[price] < 4000000)]
 data = data[data[built] > 0]
 
 #Create AGE OF BUILDING to make visualization more meaningful
-age = 'AGE OF BUILDING'
 data[age] = 2017 - data[built]
 
 #Dropping 0 TOTAL UNITS values and deleting outliers in TOTAL UNITS that are above 60
@@ -303,14 +302,16 @@ training, testing = train_test_split(data, test_size=0.2, random_state=0)
 print("Total Data Set = %i; Training Set = %i, Testing Set = %i"\
      %(data.shape[0],training.shape[0],testing.shape[0]))
 ```
-So, okay, we have a decently sized pool. But, we do want to also test a 75/25 out just for fun to see what happens later.
-First, we want to 
+So, okay, we have a decently sized pool. But, we do want to also test a 75/25 out just for fun to see what happens. We'll save that for a later investigation and continue with our first run.
+
+We're now ready to choose the SALE PRICE as our target set (y) and the rest of the features as our training set (X). We also want to choose our validation set in the same way.
 ```
-#
+#Choosing training set
 df_train = training.loc[:,data.columns]
 X_train = df_train.drop([price], axis=1)
 y_train = df_train.loc[:, [price]]
 
+#Choosing validation set
 df_test = testing.loc[:,data.columns]
 X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
