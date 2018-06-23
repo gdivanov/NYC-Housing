@@ -356,3 +356,25 @@ print("Mean 5-Fold CV Score: {}".format(np.mean(cv_scores_linreg)))
 # Print the 5-fold cross-validation scores
 print(cv_scores_linreg)
 ```
+
+### Ridge Regression Model
+
+For Ridge Regression we must choose a suitible value for our regularization parameter 'alpha'. This value allows us to scale the coefficients used to smoothen our model out. However, we need to find these values from a list to see which one will fit our parameters well.
+
+```
+
+#Create array of alpha values to test upon
+alphas = 10**np.linspace(10,-2,100)*0.5
+
+#
+ridge = Ridge(normalize=True)
+coefs = []
+for a in alphas:
+ridge.set_params(alpha=a)
+ridge.fit(X, y)
+coefs.append(ridge.coef_)
+np.shape(coefs)
+
+    
+```
+
