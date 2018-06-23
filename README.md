@@ -202,15 +202,15 @@ plt.show()
 
 We're almost at the 'cool' part.
 
-Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
+Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data to a logarithmic scale.
 
 This will help our ML tools in Scikit-Learn perform better because if we've scaled our features our models will converge faster - at least that's the hope.
 
 However, out of interest we won't be standardizing our Logistic Regression model.
 
-One thing to note is that scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
+One thing to note is that scaling data for logarithmic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
 
-The minimum column Sale Price value is not zero so we can skip adding a 1 to it as it won't make a difference in our logarithmic scaling.
+The minimum column Sale Price value is not zero so we can skip adding a 1 to it as it won't make a difference in our scaling.
 
 ### i) Preparing the Standardization
 
@@ -254,12 +254,10 @@ For example we can show how this works by looking at 2 Locations and 2 Building 
 ["Bronx", "Brooklyn", "ONE FAMILY DWELLINGS", "OFFICE BUILDING"]
 ```
 The one hot encoding transforms the categories as integers 1, 2, 3, 4, and then maps them to a binary vector of a 1 or a 0, say:
-
 ```
 [0, 1, 1, 0]
 ```
-
-This would be a one family home in Brooklyn.
+This would translate to a one family home in Brooklyn.
 
 ### ii) Preparing the One Hot Encoding
 
@@ -322,3 +320,21 @@ X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
 ```
 
+### Modelling & Coosing K-Fold 
+
+Before we begin running our data through we need to choose a k value for a cross-validation. Having a higher k value means that 
+
+
+### Linear Regression Modelling
+
+It's very __'fitting'__ if we begin with the most common regression model - Linear Regression. 
+```
+#Fit Linear Regressor to training data
+LinearRegression.fit(X_train, y_train)
+
+#Predict SALE PRICE labels and 
+y_pred = linreg.predict(X_test)
+
+# Compute 5-fold cross-validation scores: cv_scores
+cv_scores_linreg = cross_val_score(linreg, X_train_s, y_train_s, cv=5)
+```
