@@ -297,5 +297,5 @@ So we've finally arrived at our final destination - training and testing the mod
 #Split the data
 training, testing = train_test_split(data, test_size=0.2, random_state=0)
 print("Total sample size = %i; training sample size = %i, testing sample size = %i"\
-     %(data_model.shape[0],training.shape[0],testing.shape[0]))
+     %(data.shape[0],training.shape[0],testing.shape[0]))
 ```
