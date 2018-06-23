@@ -359,13 +359,17 @@ print(cv_scores_linreg)
 
 For Ridge Regression we must choose a suitible value for our regularization parameter 'alpha'. This value allows us to scale the coefficients used to smoothen our model out. However, we need to find these values from a list to see which one will fit our parameters well.
 
-```
+We will set up an array of possible values which will begin very large and end up very small. This will let us choose a value that will give us a 'good' R^2 value but also a small cross-validation error between training sets.
 
-#Create array of alpha values to test upon
+```
+#Create array of alpha values
 alphas = 10**np.linspace(10,-2,100)*0.5
 
 #Create Ridge Regressor
-ridge = Ridge(normalize=True)
+ridge = Ridge()
+
+X = data_model.drop([price], axis=1)
+y = data_model.loc[:, price]
 
 #Store coefficients into array
 coefs = []
@@ -374,14 +378,53 @@ for a in alphas:
     ridge.fit(X, y)
     coefs.append(ridge.coef_)
 np.shape(coefs)
-    
-```
 
-```
 ax = plt.gca()
 ax.plot(alphas, coefs)
-ax.set_xscale(’log’)
-plt.axis(’tight’)
-plt.xlabel(’alpha’)
-plt.ylabel(’weights’)
+ax.set_xscale('log')
+plt.axis('tight')
+plt.xlabel('alpha')
+plt.ylabel('weights')
+
+ridgecv = RidgeCV(alphas=alphas, scoring='mean_squared_error', normalize=True)
+ridgecv.fit(X_train, y_train)
+ridgecv.alpha_
+
+#Instantiate a ridge regressor: ridge
+ridge = Ridge(alpha=ridgecv.alpha_, normalize=True)
+
+#Fit the model
+ridge.fit(X_train, y_train)
+
+#Predict
+y_pred_ridge = ridge.predict(X_test)
+
+#Perform 5-fold cross-validation: ridge_cv
+ridge_cv = cross_val_score(ridge, X_train, y_train, cv=5)
+print("R^2: {}".format(ridge.score(X_test, y_test)))
+rmse = np.sqrt(mean_squared_error(y_test, y_pred_ridge))
+print("Root Mean Squared Error: {}".format(rmse))
+
+print("Average 5-Fold CV Score: {}".format(np.mean(ridge_cv)))
+#Print the 5-fold cross-validation scores
+print(ridge_cv)
+```
+### Random Forest Model
+```
+#Create Random Forest Regressor
+rf_reg = RandomForestRegressor()
+
+rf_reg.fit(X_train, y_train)
+
+y_pred_rf = rf_reg.predict(X_test)
+
+#Compute 5-fold cross-validation scores: cv_scores
+cv_scores_rf = cross_val_score(rf_reg, X_train, y_train, cv=5)
+print("R^2: {}".format(rf_reg.score(X_test, y_test)))
+rmse = np.sqrt(mean_squared_error(y_test, y_pred_rf))
+print("Root Mean Squared Error: {}".format(rmse))
+
+print("Average 5-Fold CV Score: {}".format(np.mean(cv_scores_rf)))
+#Print the 5-fold cross-validation scores
+print(cv_scores_rf)
 ```
