@@ -4,7 +4,7 @@ Visualizing and modeling the correlation between features in New York Department
 We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
 Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
 
-## Modules
+## I) Module Imorting
 
 First we import the modules in Python we want to use.
 
@@ -40,7 +40,9 @@ from sklearn import metrics
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
 ```
-Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page
+
+## II) Data Cleaning & Inspection
+Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page and then inspect the types that we have. Also, we need to drop some values that are either outliers or 0/null-types.
 
 ```
 #Upload data set
@@ -49,8 +51,6 @@ data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv'
 Since I'm going to type the words 'SALE PRICE' along with the other features of interest in our set **a lot** I'm going to use new names as placeholders to make it faster to do dataframe cleaning.
 
 ```
-#Data Cleaning-----------------------------------------------
-
 #Renamaning columns for convenience
 price = 'SALE PRICE'
 gross = 'GROSS SQUARE FEET'
@@ -99,9 +99,13 @@ data = data[(data['TOTAL UNITS'] > 0) & (data['TOTAL UNITS'] < 60)]
 
 #Dropping data where TOTAL NUTS are not a sum of either COMMERCIAL or RESIDENTIAL
 data = data[data['TOTAL UNITS'] == data['COMMERCIAL UNITS'] + data['RESIDENTIAL UNITS']]
+```
 
-#Visualization ------------------------------------------
+## III) Data Visualization
 
+We want to make use of a number of various plots to inspect the distributions
+
+```
 #Plot SALE PRICE Histogram for total range
 plt.figure()
 sns.set(font_scale=3.1)
