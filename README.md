@@ -33,10 +33,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
-from sklearn.linear_model import Lasso
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import Ridge, RidgeCV, Lasso, LassoCV
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import ElasticNet
 from sklearn import metrics
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
