@@ -137,7 +137,7 @@ g.set(xlabel='Sale Price (USD)')
 g.set(ylabel='Gross Square Feet')
 plt.savefig('fig2.pdf')
 ```
-
+```
 #Plotting BoxPlot for SALE PRICE
 plt.figure()
 sns.set(font_scale=3.1)
