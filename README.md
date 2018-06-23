@@ -1,10 +1,10 @@
 # NYC-Housing Predictions
 Visualizing and modeling the correlation between features in New York Department of Finance data set.
 
-We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
+We want to test a few models in our analysis - namely Random Forest, Linear/Logistic/Lasso/Ridge regression types.
 Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
 
-## I) Module Imorting
+## I) Module Importing
 
 First we import the modules in Python we want to use.
 
@@ -192,12 +192,16 @@ plt.title('Sale Price Distribution by Location')
 plt.show()
 ```
 
-## Modeling the Data
-### Standardization of Varying Numerical Data and One Hot Encoding for Categorical Data
+## IV) Modeling the Data
+### Standardization of Varying Numerical Data
 
 Because we are utilizing regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data into a logarithmic scale.
 
-However, we also want to look at the categorical data - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read.
+However, we will not standardize our Logistic Regression model and see the results.
+
+### One Hot Encoding for Categorical Data
+
+We also want to include the categorical data in our model - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read.
 
 For example we can show how this works by looking at 2 Locations and 2 Building Class Categories in a vector like so:
 
