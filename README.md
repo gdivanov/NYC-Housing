@@ -108,7 +108,9 @@ data = data[data['TOTAL UNITS'] == data['COMMERCIAL UNITS'] + data['RESIDENTIAL 
 
 ## III) Data Visualization
 
-We want to make use of a number of various plots to inspect the distributions
+We want to make use of a number of various plots to inspect the distributions between features in our data set.
+
+Some of the more interesting plots we want to use are histograms, scatterplots, boxplots, and density plots. To be able to get an understanding of how the raw data vs the cleaned data looks, I've plotted 'before and after pictures' for educational and entertainment purposes. Since the code written for both plots is the same I will refrain from writing it twice but show the raw version first and cleaned version second.
 
 ```
 #Plot SALE PRICE Histogram for total range
@@ -119,7 +121,9 @@ plt.title('Histogram of Sale Price')
 plt.xlabel('Sale Price (USD)')
 plt.ylabel('Normalized Frequency')
 plt.savefig('fig1.pdf')
+```
 
+```
 #Plotting ScatterPlot for each SALE PRICE distribution
 plt.figure()
 sns.set(font_scale=3.1)
@@ -132,6 +136,7 @@ plt.title('Distribution of Sale Price')
 g.set(xlabel='Sale Price (USD)')
 g.set(ylabel='Gross Square Feet')
 plt.savefig('fig2.pdf')
+```
 
 #Plotting BoxPlot for SALE PRICE
 plt.figure()
