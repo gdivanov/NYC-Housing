@@ -281,7 +281,7 @@ one_hot_data = [location, build_class]
 #Encoding and updating the data
 one_hot_encoded = pd.get_dummies(data[one_hot_data])
 one_hot_encoded.info(verbose=True, null_counts=True)
-data = data.drop(one_hot_features, axis=1)
+data = data.drop(one_hot_data, axis=1)
 data = pd.concat([data, one_hot_encoded], axis=1)
 
 #Standardizing and transforming into logarithmic scale
