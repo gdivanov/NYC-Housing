@@ -6,9 +6,10 @@ Note that I include an explanation for Random Forest importance biases in the Sc
 
 ## I) Module Importing
 
-First we import the modules in Python we want to use.
+First we import the modules in Python we want to use for the analysis and the modelling.
 
-We're mostly interested in Pandas for ease of dataframe manipulation, Numpy for matrix analysis and correlation, Matplotlib for visualization, and Scikit-Learn for our supervised modelling.
+We're mostly interested in Pandas for ease of dataframe manipulation, Numpy for matrix analysis and correlation, Matplotlib for visualization, and Scikit-Learn for our supervised learning tools.
+
 ```
 #Importing modules and packages
 import pandas as pd
@@ -67,7 +68,7 @@ The data collector mentions that they've listed the city locations in BOROUGH as
 #Matching location data in BOROUGH to numerical values
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
 ```
-Although some of the data might be interesting as a side project I'm really only interested in modeling a few notable features in our data set. Next, I split all the data of interest
+Although some of the data might be interesting as a side project I'm really only interested in modeling a few notable features in our data set.
 ```
 #Splitting the variables out that we are interested in modeling
 columns = [location, commercial, residential, gross, land, age, build_class, price]
@@ -196,7 +197,7 @@ plt.title('Sale Price Distribution by Location')
 plt.show()
 ```
 
-## IV) Preparing & Modeling the Data
+## IV) Tranforming Data for Modelling
 ### Standardization of Varying Numerical Data
 
 Finally, the 'cool' part.
@@ -210,6 +211,8 @@ However, out of interest we won't be standardizing our Logistic Regression model
 One thing to note is that scaling data for logistic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
 
 The minimum column Sale Price value is not zero so we can skip adding a 1 to it as it won't make a difference in our logarithmic scaling.
+
+### i) Preparing the Standardization
 
 ```
 #Add 1 to all numerical data other than SALE PRICE
@@ -258,7 +261,7 @@ The one hot encoding transforms the categories as integers 1, 2, 3, 4, and then 
 
 This would be a one family home in Brooklyn.
 
-### Preparing the One Hot Encoding
+### ii) Preparing the One Hot Encoding
 
 We know there are 5 unique locations and 31 building class categories. Therefore, we take the categorical data into a new vector and begin encoding using Pandas' get_dummies operator which transform categorical data into indicators and into a new dataframe.
 
@@ -288,6 +291,8 @@ sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
 plt.show()
 ```
+## V) Training & Modelling the Data
+
 ### Train-Test Splitting
 
 So we've arrived at our final destination - training and testing the models. 
@@ -316,3 +321,4 @@ df_test = testing.loc[:,data.columns]
 X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
 ```
+
