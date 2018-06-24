@@ -74,6 +74,7 @@ Doing some inspection to the data already shows that it came pre-processed as mo
 </p>
 &nbsp;
 We change all objects to numerical values for analysis.
+&nbsp;
 ```
 #Change objects to numerical values
 data[price] = pd.to_numeric(data[price], errors='coerce')
