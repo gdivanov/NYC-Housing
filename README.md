@@ -363,9 +363,9 @@ print(linreg_cv)
 
 ### Ridge Regression Model
 
-For Ridge Regression we must choose a suitible value for our regularization parameter 'alpha'. This value allows us to scale the coefficients used to smoothen our model out. However, we need to find these values from a list to see which one will fit our parameters well.
+For Ridge Regression we must choose a suitible value for our regularization parameter 'alpha'. This value allows us to scale the coefficients used to smoothen our model out. However, we need to find these values to see which one will fit our coefficients well.
 
-We will set up an array of possible values which will begin very large and end up very small. This will let us choose a value that will give us a 'good' R^2 value but also a small cross-validation error between training sets.
+We will set up an array of possible values which will begin very large and end up very small. This will let us choose a value that will give us a the smallest cross-validation error between training sets that we can find.
 
 ```
 #Create array of alpha values
@@ -481,7 +481,7 @@ rf_reg.fit(X_train, y_train)
 
 y_pred_rf = rf_reg.predict(X_test)
 
-#Compute 5-fold cross-validation scores: cv_scores
+#Compute 5-fold cross-validation scores
 rf_cv = cross_val_score(rf_reg, X_train, y_train, cv=5)
 print("R^2: {}".format(rf_reg.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_rf))
