@@ -234,7 +234,7 @@ data[age] = StandardScaler().fit_transform(np.log(data[age]).reshape(-1,1))
 #Plot the new Standardized SALE PRICE
 sns.distplot(data[price])
 plt.title('Standardized Histogram of Sale Price')
-plt.show(
+plt.show()
 
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
