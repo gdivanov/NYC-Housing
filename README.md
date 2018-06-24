@@ -66,11 +66,14 @@ The data collector mentions that they've listed the city locations in BOROUGH as
 #Matching location data in BOROUGH to numerical values
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
 ```
-Although some of the data might be interesting as a side project I'm really only interested in modeling a few notable features in our data set.
-```
 
 ```
-Doing some inspection to the data already shows that it came pre-processed as mostly categorical stuff - which we can't use because we can't do mathematical operations on it. We change all objects to numerical values for analysis.
+Doing some inspection to the data already shows that it came pre-processed as mostly categorical object-type stuff - which we can't use because we can't do mathematical operations on it. 
+```
+![alt text](https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg)
+```
+
+We change all objects to numerical values for analysis.
 ```
 #Change objects to numerals
 data[price] = pd.to_numeric(data[price], errors='coerce')
