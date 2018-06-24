@@ -416,6 +416,47 @@ print("Average 5-Fold CV Score: {}".format(np.mean(ridge_cv)))
 #Print the 5-fold cross-validation scores
 print(ridge_cv)
 ```
+### Lasso Regression
+Just like Ridge Regression, Lasso tries to smoothen out our model using regularization. However, Lasso may allow smaller contributions that are negligible to be zeroed out completely.
+
+Let's check the results.
+
+```
+lasso = Lasso(max_iter=10000)
+coefs = []
+for a in alphas:
+    lasso.set_params(alpha=a)
+    lasso.fit(scale(X_train), y_train)
+    coefs.append(lasso.coef_)
+    
+ax = plt.gca()
+ax.plot(alphas*2, coefs)
+ax.set_xscale('log')
+plt.axis('tight')
+plt.xlabel('alpha')
+plt.ylabel('weights')
+
+lassocv = LassoCV(alphas=None, max_iter=100000, cv=5)
+lassocv.fit(X_train, y_train)
+lasso.set_params(alpha=lassocv.alpha_)
+lasso.fit(X_train, y_train)
+mean_squared_error(y_test, lasso.predict(X_test))
+
+#Predict
+y_pred_lasso = lasso.predict(X_test)
+
+# Perform 5-fold cross-validation: lasso_cv
+lasso_cv = cross_val_score(lasso, X_train, y_train, cv=5)
+print("R^2: {}".format(lasso.score(X_test, y_test)))
+rmse = np.sqrt(mean_squared_error(y_test, y_pred_lasso))
+print("Root Mean Squared Error: {}".format(rmse))
+
+print("Average 5-Fold CV Score: {}".format(np.mean(lasso_cv)))
+# Print the 5-fold cross-validation scores
+print(lasso_cv)
+
+pd.Series(lasso.coef_, index=X.columns)
+```
 ### Random Forest Model
 ```
 #Create Random Forest Regressor
