@@ -408,7 +408,7 @@ ridge.fit(X_train, y_train)
 #Predict
 y_pred_ridge = ridge.predict(X_test)
 
-#Perform 5-fold cross-validation
+#Perform 5-fold cross-validation for scoring
 ridge_cv = cross_val_score(ridge, X_train, y_train, cv=5)
 print("R^2: {}".format(ridge.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_ridge))
@@ -458,7 +458,7 @@ lasso.fit(X_train, y_train)
 #Predict
 y_pred_lasso = lasso.predict(X_test)
 
-#Perform 5-fold cross-validation
+#Perform 5-fold cross-validation for scoring
 lasso_cv = cross_val_score(lasso, X_train, y_train, cv=5)
 print("R^2: {}".format(lasso.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_lasso))
@@ -476,16 +476,19 @@ pd.Series(lasso.coef_, index=X.columns)
 #Create Random Forest Regressor
 rf_reg = RandomForestRegressor()
 
+#Fit the regressor
 rf_reg.fit(X_train, y_train)
 
+#Predict
 y_pred_rf = rf_reg.predict(X_test)
 
-#Compute 5-fold cross-validation scores
+#Compute 5-fold cross-validation for scoring
 rf_cv = cross_val_score(rf_reg, X_train, y_train, cv=5)
 print("R^2: {}".format(rf_reg.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_rf))
 print("Root Mean Squared Error: {}".format(rmse))
 
+#Print the 5-fold cross-validation scores
 print("Average 5-Fold CV Score: {}".format(np.mean(rf_cv)))
 #Print the 5-fold cross-validation scores
 print(rf_cv)
