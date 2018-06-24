@@ -374,7 +374,7 @@ alphas = 10**np.linspace(10,-2,100)*0.5
 #Create Ridge Regressor
 ridge = Ridge()
 
-#Create X and y 
+#Create X and y to find coefficients for total data points
 X = data_mod.drop([price], axis=1)
 y = data_mod.loc[:, price]
 
@@ -399,7 +399,7 @@ ridgecv = RidgeCV(alphas=alphas, scoring='mean_squared_error', normalize=True)
 ridgecv.fit(X_train, y_train)
 ridgecv.alpha_
 
-#Instantiate a ridge regressor: ridge
+#Update Ridge regressor using best alpha
 ridge = Ridge(alpha=ridgecv.alpha_, normalize=True)
 
 #Fit the model
@@ -414,9 +414,8 @@ print("R^2: {}".format(ridge.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_ridge))
 print("Root Mean Squared Error: {}".format(rmse))
 
-print("Average 5-Fold CV Score: {}".format(np.mean(ridge_cv)))
 #Print the 5-fold cross-validation scores
-
+print("Average 5-Fold CV Score: {}".format(np.mean(ridge_cv)))
 print(ridge_cv)
 
 #Show Ridge coefficients
@@ -454,7 +453,6 @@ lassocv.fit(X_train, y_train)
 #Set Lasso regularization parameters to data
 lasso.set_params(alpha=lassocv.alpha_)
 lasso.fit(X_train, y_train)
-mean_squared_error(y_test, lasso.predict(X_test))
 
 #Predict
 y_pred_lasso = lasso.predict(X_test)
@@ -465,8 +463,8 @@ print("R^2: {}".format(lasso.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_lasso))
 print("Root Mean Squared Error: {}".format(rmse))
 
+#Print the 5-fold cross-validation scores
 print("Average 5-Fold CV Score: {}".format(np.mean(lasso_cv)))
-# Print the 5-fold cross-validation scores
 print(lasso_cv)
 
 #Show Lasso coefficients
