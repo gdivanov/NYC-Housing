@@ -394,6 +394,7 @@ plt.axis('tight')
 plt.xlabel('alpha')
 plt.ylabel('weights')
 
+#Calculate best alpha with smallest cross-validation error for Ridge
 ridgecv = RidgeCV(alphas=alphas, scoring='mean_squared_error', normalize=True)
 ridgecv.fit(X_train, y_train)
 ridgecv.alpha_
@@ -407,7 +408,7 @@ ridge.fit(X_train, y_train)
 #Predict
 y_pred_ridge = ridge.predict(X_test)
 
-#Perform 5-fold cross-validation: ridge_cv
+#Perform 5-fold cross-validation
 ridge_cv = cross_val_score(ridge, X_train, y_train, cv=5)
 print("R^2: {}".format(ridge.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_ridge))
@@ -415,7 +416,12 @@ print("Root Mean Squared Error: {}".format(rmse))
 
 print("Average 5-Fold CV Score: {}".format(np.mean(ridge_cv)))
 #Print the 5-fold cross-validation scores
+
 print(ridge_cv)
+
+#Show Ridge coefficients
+ridge.fit(X,y)
+pd.Series(ridge.coef_, index=X.columns)
 ```
 ### Lasso Regression
 Just like Ridge Regression, Lasso tries to smoothen out our model using regularization. However, Lasso may allow smaller contributions that are negligible to be zeroed out completely.
@@ -423,8 +429,10 @@ Just like Ridge Regression, Lasso tries to smoothen out our model using regulari
 Let's check the results.
 
 ```
-#Store coefficients into vector
+#Create Lasso regressor with maximum iterations set to 10,000
 lasso = Lasso(max_iter=10000)
+
+#Store coefficients into vector
 coefs = []
 for a in alphas:
     lasso.set_params(alpha=a)
@@ -439,7 +447,7 @@ plt.axis('tight')
 plt.xlabel('alpha')
 plt.ylabel('weights')
 
-#Calculate cross-validation for Lasso
+#Calculate best alpha with smallest cross-validation error for Lasso
 lassocv = LassoCV(alphas=None, max_iter=100000, cv=5)
 lassocv.fit(X_train, y_train)
 
@@ -451,7 +459,7 @@ mean_squared_error(y_test, lasso.predict(X_test))
 #Predict
 y_pred_lasso = lasso.predict(X_test)
 
-# Perform 5-fold cross-validation: lasso_cv
+#Perform 5-fold cross-validation
 lasso_cv = cross_val_score(lasso, X_train, y_train, cv=5)
 print("R^2: {}".format(lasso.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_lasso))
@@ -461,6 +469,7 @@ print("Average 5-Fold CV Score: {}".format(np.mean(lasso_cv)))
 # Print the 5-fold cross-validation scores
 print(lasso_cv)
 
+#Show Lasso coefficients
 pd.Series(lasso.coef_, index=X.columns)
 ```
 ### Random Forest Model
