@@ -72,12 +72,14 @@ The data collector mentions that they've listed the city locations in BOROUGH as
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
 ```
 
-Doing some inspection to the data already shows that it came pre-processed as mostly categorical object-type stuff - which we can't use because we can't do mathematical operations on it. 
+Doing some inspection to the data already shows that it came pre-processed as mostly categorical object-type stuff - which we can't use because we can't do mathematical operations on it. We show this below.
+
 &nbsp;
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="445" height="415">
 </p>
 &nbsp;
+
 So let's change all objects to numerical values for analysis.
 
 ```
@@ -93,7 +95,7 @@ data[date] = pd.to_datetime(data[date], errors='coerce')
 </p>
 &nbsp;
 
-Much better, friends.
+Much better.
 
 Next, we always want to take care of null values, duplicates, and any other logic-oriented outliers to keep only what makes sense for an analysis.
 
@@ -169,6 +171,9 @@ plt.savefig('fig1.pdf')
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png">
 </p>
 &nbsp;
+
+As you can see the raw data 
+
 ```
 #Plotting ScatterPlot for each SALE PRICE distribution
 plt.figure()
