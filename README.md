@@ -85,8 +85,8 @@ data[date] = pd.to_datetime(data[date], errors='coerce')
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.jpg" width="445" height="415">
 </p>
-```
 &nbsp;
+```
 #Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
 
