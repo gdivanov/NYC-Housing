@@ -475,7 +475,9 @@ pd.Series(lasso.coef_, index=X.columns)
 
 Last but not least we want to use one decision tree type of model to make some regressive predictions as well.
 
-Random forest will branch subsets of our data into independant, smaller decision trees, and then boost out a weighted average of what features are most important. This is so-called 'importance' of features - which is described in a more thorough investigation in another text file.
+Random forest will branch subsets of our data into independant, smaller decision trees, and then boost out a weighted average of what features are most important. This is the so-called 'importance' determination of features - which is described in a more thorough investigation in another text file.
+
+First we create the model.
 
 ```
 #Create Random Forest Regressor
@@ -498,3 +500,9 @@ print("Average 5-Fold CV Score: {}".format(np.mean(rf_cv)))
 #Print the 5-fold cross-validation scores
 print(rf_cv)
 ```
+We now want to showcase the importance that has been measured by our model. We create a new dataframe with this list in descending order to 
+
+```
+importance = pd.DataFrame(list(zip(X_train_s.columns, np.transpose(rf_reg.feature_importances_)))).sort_values(1, ascending=False)
+```
+
