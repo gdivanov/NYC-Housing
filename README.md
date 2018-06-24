@@ -422,7 +422,8 @@ print(ridge_cv)
 ridge.fit(X,y)
 pd.Series(ridge.coef_, index=X.columns)
 ```
-### Lasso Regression
+### Lasso Regression Model
+
 Just like Ridge Regression, Lasso tries to smoothen out our model using regularization. However, Lasso may allow smaller contributions that are negligible to be zeroed out completely.
 
 Let's check the results.
