@@ -54,7 +54,7 @@ data = pd.read_csv('C:\\...\\Python Scripts\\NYC Housing\\nyc-rolling-sales.csv'
 Since I'm going to type the words 'SALE PRICE' along with the other features of interest in our set **a lot** I'm going to use new names as placeholders to make it faster to do dataframe cleaning.
 
 ```
-#Remaning columns for convenience
+#Renaming columns for convenience
 price = 'SALE PRICE'
 gross = 'GROSS SQUARE FEET'
 land = 'LAND SQUARE FEET'
