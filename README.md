@@ -70,7 +70,7 @@ data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brookly
 ```
 Doing some inspection to the data already shows that it came pre-processed as mostly categorical object-type stuff - which we can't use because we can't do mathematical operations on it. 
 ```
-![alt text](https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg)
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="250" height="250">
 ```
 
 We change all objects to numerical values for analysis.
