@@ -500,9 +500,10 @@ print("Average 5-Fold CV Score: {}".format(np.mean(rf_cv)))
 #Print the 5-fold cross-validation scores
 print(rf_cv)
 ```
-We now want to showcase the importance that has been measured by our model. We create a new dataframe with this list in descending order to 
+We now want to showcase the importance that has been measured by our model. We create a new dataframe with this list in descending order to see how valuable each feature actually is.
 
 ```
-importance = pd.DataFrame(list(zip(X_train_s.columns, np.transpose(rf_reg.feature_importances_)))).sort_values(1, ascending=False)
+importance = pd.DataFrame(list(zip(X_train.columns, np.transpose(rf_reg.feature_importances_)))).sort_values(1, ascending=False)
+print(importance)
 ```
 
