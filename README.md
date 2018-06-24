@@ -1,7 +1,7 @@
 # NYC-Housing Predictions
 Visualizing and modeling the correlation between features in New York Department of Finance data set.
 
-We want to test a few models in our analysis - namely Random Forest, Linear/Logistic/Lasso/Ridge regression types.
+We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
 Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
 
 ## I) Module Importing
@@ -472,6 +472,11 @@ print(lasso_cv)
 pd.Series(lasso.coef_, index=X.columns)
 ```
 ### Random Forest Model
+
+Last but not least we want to use one decision tree type of model to make some regressive predictions as well.
+
+Random forest will branch subsets of our data into independant, smaller decision trees, and then boost out a weighted average of what features are most important. This is so-called 'importance' of features - which is described in a more thorough investigation in another text file.
+
 ```
 #Create Random Forest Regressor
 rf_reg = RandomForestRegressor()
