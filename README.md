@@ -88,6 +88,7 @@ data[date] = pd.to_datetime(data[date], errors='coerce')
 </p>
 &nbsp;
 
+```
 #Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
 
@@ -98,7 +99,7 @@ data = data[data[price].notnull()]
 
 #Drop all SALE PRICE outlier values outside a $100,000 to $4,000,000 range for better data fit in visualization
 data = data[(data[price] > 100000) & (data[price] < 4000000)]
-```
+
 #Drop all 0 YEAR BUILT values
 data = data[data[built] > 0]
 
