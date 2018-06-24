@@ -298,9 +298,9 @@ So we've arrived at our final destination - training and testing the models.
 
 Dear god, yes.
 
-Our data is now ready to be split into the respecting training and testing populations. General rule of thumb is that 80/20 is a good starting point, however, checking our data points we see how many we have to work with now that we've deleted a large population.
+Our data is now ready to be split into their respective training and testing populations. A general rule of thumb is that 80/20 is a good starting point so we'll go with that for now.
 
-Also, I'm only really interested in passing through specific features into our models for predictions.
+Also, I'm really only interested in passing through specific features into our models for predictions.
 
 ```
 #Splitting the variables out that we are interested in modeling
@@ -334,7 +334,7 @@ Before we begin running our data through we need to choose a k value for a cross
 
 On one hand if we have a higher k value then we have a higher computational time, higher variance, and lower bias. If we have a smaller k value then we have a lower computational time, lower variance, and higher bias.
 
-We choose k = 5 because we only have ~26,000 data points.
+We choose k = 5 because we only have ~26,000 data points. However, you should always note how much data you have to work with. Since we deleted a lot of our data we aren't left with a whole lot - so choosing k = 5 seems reasonable.
 
 ### Linear Regression Model
 
