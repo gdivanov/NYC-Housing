@@ -347,7 +347,7 @@ linreg.fit(X_train, y_train)
 
 #Predict SALE PRICE labels and compute 5-Fold Cross-Validation
 y_pred = linreg.predict(X_test)
-cv_scores_linreg = cross_val_score(linreg, X_train, y_train, cv=5)
+linreg_cv = cross_val_score(linreg, X_train, y_train, cv=5)
 ```
 Computing our coefficient of determination (R^2), Root Mean Square Error, and Mean of the CV-Score we get:
 
@@ -356,9 +356,9 @@ print("R^2: {}".format(linreg.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 print("Root Mean Squared Error: {}".format(rmse))
 
-print("Mean 5-Fold CV Score: {}".format(np.mean(cv_scores_linreg)))
+print("Mean 5-Fold CV Score: {}".format(np.mean(linreg_cv)))
 # Print the 5-fold cross-validation scores
-print(cv_scores_linreg)
+print(linreg_cv)
 ```
 
 ### Ridge Regression Model
@@ -378,7 +378,7 @@ ridge = Ridge()
 X = data_mod.drop([price], axis=1)
 y = data_mod.loc[:, price]
 
-#Store coefficients into array
+#Store coefficients into vector
 coefs = []
 for a in alphas:
     ridge.set_params(alpha=a)
@@ -386,6 +386,7 @@ for a in alphas:
     coefs.append(ridge.coef_)
 np.shape(coefs)
 
+#Plot regularization parameters for Ridge
 ax = plt.gca()
 ax.plot(alphas, coefs)
 ax.set_xscale('log')
@@ -422,6 +423,7 @@ Just like Ridge Regression, Lasso tries to smoothen out our model using regulari
 Let's check the results.
 
 ```
+#Store coefficients into vector
 lasso = Lasso(max_iter=10000)
 coefs = []
 for a in alphas:
@@ -429,6 +431,7 @@ for a in alphas:
     lasso.fit(scale(X_train), y_train)
     coefs.append(lasso.coef_)
     
+#Plot regularization parameters for Lasso
 ax = plt.gca()
 ax.plot(alphas*2, coefs)
 ax.set_xscale('log')
@@ -436,8 +439,11 @@ plt.axis('tight')
 plt.xlabel('alpha')
 plt.ylabel('weights')
 
+#Calculate cross-validation for Lasso
 lassocv = LassoCV(alphas=None, max_iter=100000, cv=5)
 lassocv.fit(X_train, y_train)
+
+#Set Lasso regularization parameters to data
 lasso.set_params(alpha=lassocv.alpha_)
 lasso.fit(X_train, y_train)
 mean_squared_error(y_test, lasso.predict(X_test))
@@ -467,12 +473,12 @@ rf_reg.fit(X_train, y_train)
 y_pred_rf = rf_reg.predict(X_test)
 
 #Compute 5-fold cross-validation scores: cv_scores
-cv_scores_rf = cross_val_score(rf_reg, X_train, y_train, cv=5)
+rf_cv = cross_val_score(rf_reg, X_train, y_train, cv=5)
 print("R^2: {}".format(rf_reg.score(X_test, y_test)))
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_rf))
 print("Root Mean Squared Error: {}".format(rmse))
 
-print("Average 5-Fold CV Score: {}".format(np.mean(cv_scores_rf)))
+print("Average 5-Fold CV Score: {}".format(np.mean(rf_cv)))
 #Print the 5-fold cross-validation scores
-print(cv_scores_rf)
+print(rf_cv)
 ```
