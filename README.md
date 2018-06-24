@@ -67,13 +67,11 @@ The data collector mentions that they've listed the city locations in BOROUGH as
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
 ```
 
-```
 Doing some inspection to the data already shows that it came pre-processed as mostly categorical object-type stuff - which we can't use because we can't do mathematical operations on it. 
-```
+
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="400" height="380">
 </p>
-```
 
 We change all objects to numerical values for analysis.
 ```
@@ -82,6 +80,11 @@ data[price] = pd.to_numeric(data[price], errors='coerce')
 data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
 data[date] = pd.to_datetime(data[date], errors='coerce')
+```
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.jpg" width="400" height="380">
+</p>
+```
 
 #Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
