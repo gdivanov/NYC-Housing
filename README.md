@@ -43,6 +43,7 @@ from sklearn.metrics import accuracy_score
 ```
 
 ## II) Data Cleaning & Inspection
+
 Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page (or on the main page of my NYC Housing GitHub as "nyc-rolling-sales.csv" and then inspect the types that we have. Also, we need to drop some values that are either outliers or 0/null-types.
 
 Before we do that it's important to note that we are really interested mostly in the price, square footage, location, and the overall age of the houses and how these correlate. So we will mostly be working on cleaning and preparing these values for analysis and modelling.
@@ -149,7 +150,9 @@ data = data[data['TOTAL UNITS'] == data['COMMERCIAL UNITS'] + data['RESIDENTIAL 
 
 We want to make use of a number of various plots to inspect the distributions between features in our data set.
 
-Some of the more interesting plots we want to use are histograms, scatterplots, boxplots, and pairplots. To be able to get an understanding of how the raw data vs the cleaned data looks, I've plotted 'before and after pictures' for educational and entertainment purposes. Since the code written for both plots is the same I will refrain from writing it twice but show the raw version first and cleaned version second.
+Some of the more interesting plots we want to use are histograms, scatterplots, boxplots, and pairplots. To be able to get an understanding of how the raw data vs the cleaned data looks, I've plotted 'before and after' pictures for educational and entertainment purposes. 
+
+Since the code written for both plots is the same I will refrain from writing each more than once but show the raw version first and cleaned version second.
 
 ```
 #Plot SALE PRICE Histogram for total range
@@ -161,7 +164,11 @@ plt.xlabel('Sale Price (USD)')
 plt.ylabel('Normalized Frequency')
 plt.savefig('fig1.pdf')
 ```
-
+&nbsp;
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png">
+</p>
+&nbsp;
 ```
 #Plotting ScatterPlot for each SALE PRICE distribution
 plt.figure()
