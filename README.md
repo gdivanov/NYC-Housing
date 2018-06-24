@@ -198,7 +198,7 @@ plt.title('Sale Price Distribution by Location')
 plt.show()
 ```
 
-## IV) Tranforming Data for Modelling
+## IV) Tranforming Data for Model Building
 ### Standardization of Varying Numerical Data
 
 We're almost at the 'cool' part.
