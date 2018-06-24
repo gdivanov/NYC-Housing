@@ -11,7 +11,7 @@ First we import the modules in Python we want to use for the analysis and the mo
 We're mostly interested in Pandas for ease of dataframe manipulation, Numpy for matrix analysis and correlation, Matplotlib for visualization, and Scikit-Learn for our supervised learning tools.
 
 ```
-#Importing modules and packages
+#Import all dataframe, mathematical, and visualization modules
 import pandas as pd
 from pandas.tools.plotting import scatter_matrix 
 from scipy.stats import gaussian_kde
@@ -24,12 +24,13 @@ import matplotlib.mlab as mlab
 import seaborn as sns
 import warnings 
 warnings.filterwarnings('ignore')
-import matplotlib.style as style
+sns.set(style='whitegrid', context='notebook', palette='deep') 
 
-#Modeling tool imports
+#Import ML tools and metrics
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split 
 from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression 
 from sklearn.linear_model import LogisticRegression
@@ -38,10 +39,13 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn import metrics
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
+from sklearn.metrics import accuracy_score
 ```
 
 ## II) Data Cleaning & Inspection
-Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page and then inspect the types that we have. Also, we need to drop some values that are either outliers or 0/null-types.
+Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page (or on the main page of my NYC Housing GitHub as "nyc-rolling-sales.csv" and then inspect the types that we have. Also, we need to drop some values that are either outliers or 0/null-types.
+
+Before we do that it's important to note that we are really interested mostly in the price, square footage, location, and the overall age of the houses and how these correlate. So we will mostly be working on cleaning and preparing these values for analysis and modelling.
 
 ```
 #Upload data set
@@ -73,7 +77,7 @@ Doing some inspection to the data already shows that it came pre-processed as mo
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="445" height="415">
 </p>
 &nbsp;
-We change all objects to numerical values for analysis.
+So let's change all objects to numerical values for analysis.
 
 ```
 #Change objects to numerical values
@@ -88,17 +92,45 @@ data[date] = pd.to_datetime(data[date], errors='coerce')
 </p>
 &nbsp;
 
+Much better, friends.
+
+Next, we always want to take care of null values, duplicates, and any other logic-oriented outliers to keep only what makes sense for an analysis.
+
+First we drop the duplicates.
+
 ```
 #Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
+```
+Next we drop null values for the features of interest.
+```
 
 #Drop all null cases for our most important features; SALE PRICE, LAND SQUARE FEET AND GROSS SQUARE FEET
 data = data[data[land].notnull()] 
 data = data[data[gross].notnull()] 
 data = data[data[price].notnull()]
+```
+Now we're in pretty good shape.
 
-#Drop all SALE PRICE outlier values outside a $100,000 to $4,000,000 range for better data fit in visualization
-data = data[(data[price] > 100000) & (data[price] < 4000000)]
+It's time to start thinking about ranges on all of our values. Does it make sense to plot $500,000,000 homes that only the king of Saudia Arabia can afford? Do they even exist?
+
+Do we really want to keep buildings that have 10,000 units inside? Last I heard the Empire State wasn't for sale.
+
+Maybe if we were more interested in analytics dealing with strictly the most wealthy or crazy corporate skyscrapers. But in this analysis we want to look more closely at modelling for 'average' to 'moderately expensive' sized buildings; those which fall under the highest populated intervals.
+
+### Ranges & Intervals of NYC 
+
+**1)** We want sale prices to be between $100,000 - $5,500,000 because it's simply reasonable.
+
+**2)** We don't want any weird or incorrect values where the year built is 0.
+
+**3)** We don't want any illogical entries creating skewedness in our analysis.
+
+**4)** We want the total units of a building to not have more than 60.
+
+```
+#Drop all SALE PRICE outlier values outside a $100,000 to $5,500,000 
+data = data[(data[price] > 100000) & (data[price] < 5500000)]
 
 #Drop all 0 YEAR BUILT values
 data = data[data[built] > 0]
@@ -117,7 +149,7 @@ data = data[data['TOTAL UNITS'] == data['COMMERCIAL UNITS'] + data['RESIDENTIAL 
 
 We want to make use of a number of various plots to inspect the distributions between features in our data set.
 
-Some of the more interesting plots we want to use are histograms, scatterplots, boxplots, and density plots. To be able to get an understanding of how the raw data vs the cleaned data looks, I've plotted 'before and after pictures' for educational and entertainment purposes. Since the code written for both plots is the same I will refrain from writing it twice but show the raw version first and cleaned version second.
+Some of the more interesting plots we want to use are histograms, scatterplots, boxplots, and pairplots. To be able to get an understanding of how the raw data vs the cleaned data looks, I've plotted 'before and after pictures' for educational and entertainment purposes. Since the code written for both plots is the same I will refrain from writing it twice but show the raw version first and cleaned version second.
 
 ```
 #Plot SALE PRICE Histogram for total range
