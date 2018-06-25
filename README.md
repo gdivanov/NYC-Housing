@@ -234,15 +234,15 @@ plt.savefig('fig4.pdf')
 ```
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
-    Figure 05: Raw Pairplot - Sale Price w.r.t. Land Square Footage
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png>
+    Figure 05: Raw Pairplot
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
-    Figure 06: Cleaned Pairplot - Sale Price w.r.t. Gross Square Footage
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned.png>
+    Figure 06: Cleaned Pairplot
 </p>
 
 
