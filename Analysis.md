@@ -447,7 +447,7 @@ On one hand if we have a higher k value then we have a higher computational time
 
 We choose k = 5 because we only have ~26,000 data points. However, you should always note how much data you have to work with. Since we deleted a lot of our data we aren't left with a whole lot - so choosing k = 5 seems reasonable.
 
-### Ridge Regression Model
+## Ridge Regression Model
 
 For Ridge Regression we must choose a suitible value for our regularization parameter 'alpha'. This value allows us to scale the coefficients used to smoothen our model out. However, we need to find these values to see which one will fit our coefficients well.
 
@@ -538,7 +538,7 @@ Coefficients of determination at about 0.401 is not bad but this is an untuned m
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="520" height="540">
 </p>
 
-### Lasso Regression Model
+## Lasso Regression Model
 
 Just like Ridge Regression, Lasso tries to smoothen out our model using regularization. However, Lasso may allow smaller contributions that are negligible to be zeroed out completely.
 
@@ -614,7 +614,7 @@ Coefficients of determination at about 0.401 is not bad but this is an untuned m
 
 Surprisingly enough the mean square error is very close to that of the Ridge. I am not entirely sure why that is but it is something for a later investigation.
 
-### Random Forest Model
+## Random Forest Model
 
 Last but not least we want to use one decision tree type of model to make some regressive predictions as well.
 
