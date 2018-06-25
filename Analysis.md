@@ -175,7 +175,7 @@ Since the code written for both plots is the same I will refrain from writing ea
 </p>
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Cleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Cleaned.png">    
     Figure 02: Cleaned Histogram
 </p>
 
@@ -191,28 +191,29 @@ plt.show()
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png" width="815" height="485">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png" width="795" height="485">
     Figure 03: Raw Scatterplot Land
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png" width="815" height="485">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png" width="795" height="485">
     Figure 04: Raw Scatterplot Gross
 </p>
+
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png" width="815" height="485">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png" width="795" height="485">
     Figure 05: Cleaned Scatterplot Land
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned1.png" width="815" height="485">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned1.png" width="795" height="485">
     Figure 06: Cleaned Scatterplot Gross
 </p>
 
