@@ -166,11 +166,10 @@ plt.xlabel('Sale Price (USD)')
 plt.ylabel('Normalized Frequency')
 plt.savefig('fig1.pdf')
 ```
-&nbsp;
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png" "hi">
+    Hello
 </p>
-&nbsp;
 
 
 As you can see the raw data 
