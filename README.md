@@ -176,8 +176,6 @@ plt.savefig('fig1.pdf')
     Figure 02: Cleaned Histogram
 </p>
 
-As you can see the raw data 
-
 ```
 #Plotting ScatterPlot for each SALE PRICE distribution
 plt.figure()
@@ -192,6 +190,16 @@ g.set(xlabel='Sale Price (USD)')
 g.set(ylabel='Gross Square Feet')
 plt.savefig('fig2.pdf')
 ```
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
+    Figure 03: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
+</p>
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
+    Figure 04: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
+</p>
+
 ```
 #Plotting BoxPlot for SALE PRICE
 plt.figure()
