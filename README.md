@@ -157,7 +157,7 @@ Some of the more interesting plots we want to use are histograms, scatterplots, 
 Since the code written for both plots is the same I will refrain from writing each more than once but show the raw version first and cleaned version second.
 
 ```
-#Plot SALE PRICE Histogram for total range
+#Plot SALE PRICE Histogram
 plt.figure()
 sns.set(font_scale=3.1)
 hist = sns.distplot(data[price])
@@ -215,14 +215,14 @@ plt.savefig('fig3.pdf')
 ```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned.png">
-    Figure 03: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
+    Figure 05: Cleaned Scatterplot - Sale Price w.r.t. Land Square Footage
 </p>
 
 &nbsp;
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned.png">
-    Figure 04: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
+    Figure 04: Cleaned Scatterplot - Sale Price w.r.t. Gross Square Footage
 </p>
 
 ```
@@ -231,16 +231,23 @@ plt.figure()
 sns.set(font_scale=2.3)
 pair = sns.pairplot(data, vars=[price, gross, land], size=5, hue=location, aspect=1.2)
 plt.savefig('fig4.pdf')
+```
 
-#Plot Kernal Density Plot to check population density of SALE PRICE
-plt.figure()
-sns.set(font_scale=3.1)
-kde = sns.kdeplot(np.array(data[price]), bw=0.5)
-plt.title('Kernal Density of Sale Price')
-kde.set(xlabel='Sale Price (USD)')
-kde.set(ylabel='Unit Probability')
-plt.savefig('fig5.pdf')
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
+    Figure 05: Raw Pairplot - Sale Price w.r.t. Land Square Footage
+</p>
 
+&nbsp;
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
+    Figure 06: Cleaned Pairplot - Sale Price w.r.t. Gross Square Footage
+</p>
+
+
+
+```
 #Compute the correlation matrix
 sns.set(font_scale=2.1)
 d = data[['RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS','GROSS SQUARE FEET','SALE PRICE', 'AGE OF BUILDING', 'LAND SQUARE FEET']]
