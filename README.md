@@ -268,7 +268,7 @@ plt.savefig('fig4.pdf')
 
 As you can quite obviously tell the distributions for every plot from Uncleaned to Cleaned are beyond noticable. Not only are we able to visualize the distributions of the sales price but we're also able to better discern what the distributions look like for the housing locations as well.
 
-If we dig further we can also visualize these correlations with respect to their coefficients by building a correlation matrix.
+If we dig further we can also visualize these correlations with respect to their coefficients by building a correlation matrix shown below.
 
 
 <p align="center"> 
@@ -299,17 +299,16 @@ plt.xticks(rotation=90)
 plt.title('Correlation Matrix for New York Housing Variables 2017-2018')
 plt.tight_layout()
 plt.show()
+```
 
-#Plot regression for square feet and price
-sns.regplot(x=gross, y=price, data=data, fit_reg=False, scatter_kws={'alpha':0.3}, logistic=True)
-plt.title('Gross Square Feet vs Sale Price')
-plt.show()
+One final bit of information can be attained by looking at the boxplot price distribution in terms of the location of the house. This could provide some insights into where most of the most dollar-value houses are located in NYC.
 
-#Plot regression for age and price
-sns.regplot(x=age, y=price, data=data, fit_reg=False, scatter_kws={'alpha':0.1}, logistic=True)
-plt.title('Sale Price Distribution by Building Age')
-plt.show()
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_5_Boxplot_Location.png">
+    Figure 11: Boxplot for Sales Price Distribution on Location
+</p>
 
+```
 #Plot location
 sns.boxplot(x=location, y=price, data=data)
 plt.title('Sale Price Distribution by Location')
