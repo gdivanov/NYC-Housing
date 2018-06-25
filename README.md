@@ -65,6 +65,7 @@ built = 'YEAR BUILT'
 age = 'AGE OF BUILDING'
 residential = 'RESIDENTIAL UNITS'
 build_class = 'BUILDING CLASS CATEGORY'
+total = 'TOTAL UNITS'
 ```
 The data collector mentions that they've listed the city locations in BOROUGH as 1 = Manhattan, 2 = Bronx, 3 = Brooklyn, 4 = Queens, and 5 = Staten Island. So we rename these values inside the dataframe to match that.
 ```
@@ -142,10 +143,10 @@ data = data[data[built] > 0]
 data[age] = 2017 - data[built]
 
 #Dropping 0 TOTAL UNITS values and deleting outliers in TOTAL UNITS that are above 60
-data = data[(data['TOTAL UNITS'] > 0) & (data['TOTAL UNITS'] < 60)] 
+data = data[(data[total] > 0) & (data[total] < 60)] 
 
 #Dropping data where TOTAL NUTS are not a sum of either COMMERCIAL or RESIDENTIAL
-data = data[data['TOTAL UNITS'] == data['COMMERCIAL UNITS'] + data['RESIDENTIAL UNITS']]
+data = data[data[total] == data[commercial] + data[residential]]
 ```
 
 ## III) Data Visualization
@@ -267,12 +268,18 @@ plt.savefig('fig4.pdf')
 
 As you can quite obviously tell the distributions for every plot from Uncleaned to Cleaned are beyond noticable. Not only are we able to visualize the distributions of the sales price but we're also able to better discern what the distributions look like for the housing locations as well.
 
+If we dig further we can also visualize these correlations with respect to their coefficients by building a correlation matrix.
 
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/corr_matrix1.png">
+    Figure 11: Correlation Matrix
+</p>
 
 ```
 #Compute the correlation matrix
 sns.set(font_scale=2.1)
-d = data[['RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS','GROSS SQUARE FEET','SALE PRICE', 'AGE OF BUILDING', 'LAND SQUARE FEET']]
+d = data[[residential, commercial, total, age, price, gross, land]]
 corr = d.corr()
 
 #Generate entries of zeros for the upper triangle
