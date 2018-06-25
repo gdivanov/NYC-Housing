@@ -180,7 +180,7 @@ plt.savefig('fig1.pdf')
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png" width="945" height="455">
     Figure 03: Raw Scatterplot Land
 </p>
 
