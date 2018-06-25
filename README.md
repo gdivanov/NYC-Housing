@@ -195,6 +195,8 @@ plt.savefig('fig2.pdf')
     Figure 03: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
 </p>
 
+&nbsp;
+
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
     Figure 04: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
