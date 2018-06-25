@@ -658,3 +658,18 @@ print(importance)
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="390" height="490">
 </p>
+
+## VI) Conclusions
+
+For our data set we can only really deduce certain key features of our observations without being an NYC real-estate expert.
+
+In short a list of attributes of our overall study will suffice because this project was meant to showcase a data science step-by-step project without fully committing to heavy details.
+
+So,
+
+**1)** We saw that the Random Forest model gave us the highest coefficient of determination of ~0.433. This means that if we were to begin modeling more that this might be the best choice given that we tuned both the Ridge and Lasso slightly, yet still got outperformed by the Random Forest.
+
+**2** The importances seemed to suggest that the Gross Square Footage of the building far outweighed the rest of the categories. This would need further investigation into if that were really the case or if there are some issues with the default importances measures by Scikit-Learn (which is something I investigate in my next study).
+
+**3** A lot of data was deleted - roughly a whopping **57%** from what we originally had before cleaning. This means possible alterations to the data could be made to keep more of it for better results
+
