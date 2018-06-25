@@ -241,7 +241,7 @@ plt.savefig('fig4.pdf')
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned1.png">
     Figure 06: Cleaned Pairplot
 </p>
 
