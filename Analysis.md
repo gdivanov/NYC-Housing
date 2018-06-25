@@ -537,7 +537,7 @@ pd.Series(ridge.coef_, index=X.columns)
 Coefficients of determination at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="520" height="540">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="590" height="590">
 </p>
 
 ## Lasso Regression Model
@@ -611,7 +611,7 @@ pd.Series(lasso.coef_, index=X.columns)
 Coefficients of determination at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Values.png" width="510" height="490">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Values.png" width="590" height="590">
 </p>
 
 Surprisingly enough the mean square error is very close to that of the Ridge. I am not entirely sure why that is but it is something for a later investigation.
@@ -656,7 +656,7 @@ importance = pd.DataFrame(list(zip(X_train.columns, np.transpose(rf_reg.feature_
 print(importance)
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="390" height="490">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="590" height="590">
 </p>
 
 ## VI) Conclusions
