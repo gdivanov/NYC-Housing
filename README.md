@@ -29,7 +29,6 @@ sns.set(style='whitegrid', context='notebook', palette='deep')
 #Import ML tools and metrics
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split 
-from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression 
@@ -450,7 +449,7 @@ On one hand if we have a higher k value then we have a higher computational time
 
 We choose k = 5 because we only have ~26,000 data points. However, you should always note how much data you have to work with. Since we deleted a lot of our data we aren't left with a whole lot - so choosing k = 5 seems reasonable.
 
-### Linear Regression Model
+### Elastic Net Regression Model
 
 It's very __'fitting'__ if we begin with the most common regression model - Linear Regression. 
 
