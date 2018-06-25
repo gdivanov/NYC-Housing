@@ -214,14 +214,14 @@ plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
 plt.savefig('fig3.pdf')
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png">
     Figure 05: Cleaned Scatterplot - Sale Price w.r.t. Land Square Footage
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned1.png">
     Figure 04: Cleaned Scatterplot - Sale Price w.r.t. Gross Square Footage
 </p>
 
