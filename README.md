@@ -234,18 +234,16 @@ plt.savefig('fig4.pdf')
 ```
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png>
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png">
     Figure 05: Raw Pairplot
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned.png>
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned.png">
     Figure 06: Cleaned Pairplot
 </p>
-
-
 
 ```
 #Compute the correlation matrix
