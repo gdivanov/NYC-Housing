@@ -31,8 +31,6 @@ from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split 
 from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression 
-from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Ridge, RidgeCV, Lasso, LassoCV
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import metrics
