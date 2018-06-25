@@ -562,7 +562,7 @@ for a in alphas:
 Again we take a look at how the alpha changes the weights on a Lasso model.
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_6_Coeff_Lasso.png" width="445" height="415">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_6_Coeff_Lasso.png">
     Figure 17: Coefficient Lasso Weights as function of Alpha
 </p>
 
