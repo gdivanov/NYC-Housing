@@ -168,11 +168,10 @@ plt.savefig('fig1.pdf')
 ```
 &nbsp;
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png" "hi">
 </p>
 &nbsp;
 
-![This is a long caption.](http://fakeimg.pl/439x320/282828/ "This a short caption (alt text)")
 
 As you can see the raw data 
 
