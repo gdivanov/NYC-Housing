@@ -531,15 +531,13 @@ ridge.fit(X,y)
 pd.Series(ridge.coef_, index=X.columns)
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="445" height="115">
-    Figure 15: Ridge Regression Metric Scores
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="435" height="95">
 </p>
 
 Coefficients of determination at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="500" height="460">
-    Figure 16: Ridge Regression Coefficient Weights
 </p>
 
 ### Lasso Regression Model
@@ -563,7 +561,7 @@ Again we take a look at how the alpha changes the weights on a Lasso model.
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_6_Coeff_Lasso.png">
-    Figure 17: Coefficient Lasso Weights as function of Alpha
+        Figure 17: Coefficient Lasso Weights as function of Alpha
 </p>
 
 ```
