@@ -614,14 +614,13 @@ Coefficients of determination at about 0.401 is not bad but this is an untuned m
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Values.png" width="510" height="490">
 </p>
 
+Surprisingly enough the mean square error is very close to that of the Ridge. I am not entirely sure why that is but it is something for a later investigation.
 
 ### Random Forest Model
 
 Last but not least we want to use one decision tree type of model to make some regressive predictions as well.
 
-Random forest will branch subsets of our data into independant, smaller decision trees, and then boost out a weighted average of what features are most important. This is the so-called 'importance' determination of features - which is described in a more thorough investigation in another text file.
-
-First we create the model.
+Random forest will branch subsets of our data into independant, smaller decision trees, and then boost out a weighted average of what features are most important. This is the so-called 'importance' determination of features - which will be described in a more thorough investigation in another text file.
 
 ```
 #Create Random Forest Regressor
@@ -644,10 +643,18 @@ print("Average 5-Fold CV Score: {}".format(np.mean(rf_cv)))
 #Print the 5-fold cross-validation scores
 print(rf_cv)
 ```
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Scores.png" width="435" height="95">
+</p>
+
+
 We now want to showcase the importance that has been measured by our model. We create a new dataframe with this list in descending order to see how valuable each feature actually is.
 
 ```
 importance = pd.DataFrame(list(zip(X_train.columns, np.transpose(rf_reg.feature_importances_)))).sort_values(1, ascending=False)
 print(importance)
 ```
-
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="510" height="490">
+</p>
