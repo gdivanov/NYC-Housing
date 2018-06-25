@@ -315,7 +315,6 @@ plt.title('Sale Price Distribution by Location', fontsize=30)
 plt.ylabel('Sale Price (USD)', fontsize=30)
 plt.xlabel('Location', fontsize=30)
 plt.show()
-
 ```
 What have we gained from these visualizations?
 
@@ -331,15 +330,28 @@ We'd need a real-estate specialist on board to help us make sense of the fact th
 
 We're almost at the 'cool' part.
 
-Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data to a logarithmic scale.
+Because we are utilizing certain regression models in training our data - Linear, Lasso, and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data to a logarithmic scale like below for our sale price.
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Cleaned_Standardized.png">
+    Figure 13: Standardized Sales Price Histogram
+</p>
+
+```
+#Plot the new Standardized SALE PRICE
+sns.distplot(data_model[price])
+plt.title('Standardized Histogram of Sale Price')
+plt.xlabel('Sale Price (USD)')
+plt.ylabel('Normalized Frequency')
+plt.show()
+```
+That's lookin' **real nice.**
 
 This will help our ML tools in Scikit-Learn perform better because if we've scaled our features our models will converge faster - at least that's the hope.
 
-However, out of interest we won't be standardizing our Logistic Regression model.
-
 One thing to note is that scaling data for logarithmic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
 
-The minimum column Sale Price value is not zero so we can skip adding a 1 to it as it won't make a difference in our scaling.
+The minimum column Sale Price value is not zero so we can skip adding a 1 to it.
 
 ### i) Preparing the Standardization
 
