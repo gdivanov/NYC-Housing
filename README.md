@@ -304,16 +304,27 @@ plt.show()
 One final bit of information can be attained by looking at the boxplot price distribution in terms of the location of the house. This could provide some insights into where most of the most dollar-value houses are located in NYC.
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_5_Boxplot_Location.png">
-    Figure 11: Boxplot for Sales Price Distribution on Location
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_5_Boxplot_Location1.png">
+    Figure 12: Boxplot for Sales Price Distribution on Location
 </p>
 
 ```
-#Plot location
+#Plot Boxplot Location
 sns.boxplot(x=location, y=price, data=data)
-plt.title('Sale Price Distribution by Location')
+plt.title('Sale Price Distribution by Location', fontsize=30)
+plt.ylabel('Sale Price (USD)', fontsize=30)
+plt.xlabel('Location', fontsize=30)
 plt.show()
+
 ```
+What have we gained from these visualizations?
+
+It would seem as though Manhattan definitely holds the place for highest cost of living because the first quartile begins somewhere in the $1.7 million zone! I guess that's not really surprising.
+
+What's really interesting is the correlation matrix.
+
+We'd need a real-estate specialist on board to help us make sense of the fact that the age of the building is much higher magnitude in correlation to the price as the land or gross square footage; not something I would have expected.
+
 
 ## IV) Tranforming Data for Model Building
 ### Standardization of Varying Numerical Data
