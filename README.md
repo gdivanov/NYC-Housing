@@ -395,14 +395,6 @@ This would translate to a one family home in Brooklyn.
 We know there are 5 unique locations and 31 building class categories. Therefore, we take the categorical data into a new vector and begin encoding using Pandas' get_dummies operator which transform categorical data into indicators and into a new dataframe.
 
 ```
-#Standardizing and transforming into logarithmic scale
-data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-1,1))
-
-#Plot the new Standardized SALE PRICE
-sns.distplot(data[price])
-plt.title('Standardized Histogram of Sale Price')
-plt.show()
-
 #Splitting categorical data
 one_hot_data = [location, build_class]
 
@@ -411,14 +403,6 @@ one_hot_encoded = pd.get_dummies(data[one_hot_data])
 one_hot_encoded.info(verbose=True, null_counts=True)
 data = data.drop(one_hot_data, axis=1)
 data = pd.concat([data, one_hot_encoded], axis=1)
-
-#Standardizing and transforming into logarithmic scale
-data[price] = StandardScaler().fit_transform(np.log(data_model[price]).reshape(-1,1))
-
-#Plot the new Standardized SALE PRICE
-sns.distplot(data[price])
-plt.title('Standardized Histogram of Sale Price')
-plt.show()
 ```
 ## V) Training & Modelling the Data
 
