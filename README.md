@@ -441,7 +441,7 @@ df_test = testing.loc[:,data_mod.columns]
 X_test = df_test.drop([price], axis=1)
 y_test = df_test.loc[:, [price]]
 ```
-### Modelling & Choosing the "k" in K-Fold 
+### Modeling & Choosing the "k" in K-Fold 
 
 Before we begin running our data through we need to choose a k value for a cross-validation. Having a higher k value means that more iterations will take place at a lower sample size. So it's a trade-off.
 
