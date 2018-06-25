@@ -156,16 +156,7 @@ Some of the more interesting plots we want to use are histograms, scatterplots, 
 
 Since the code written for both plots is the same I will refrain from writing each more than once but show the raw version first and cleaned version second.
 
-```
-#Plot SALE PRICE Histogram
-plt.figure()
-sns.set(font_scale=3.1)
-hist = sns.distplot(data[price])
-plt.title('Histogram of Sale Price')
-plt.xlabel('Sale Price (USD)')
-plt.ylabel('Normalized Frequency')
-plt.savefig('fig1.pdf')
-```
+
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png">
     Figure 01: Raw Histogram 
@@ -177,19 +168,17 @@ plt.savefig('fig1.pdf')
 </p>
 
 ```
-#Plotting ScatterPlot for each SALE PRICE distribution
+#Plot SALE PRICE Histogram
 plt.figure()
 sns.set(font_scale=3.1)
-g = sns.lmplot(data=data, x=price, y=gross, hue=location, fit_reg=False, size = 10.5, scatter_kws={'s':135}, legend_out = False)
-for ax in g.axes.flat:
-    plt.setp(ax.get_legend().get_texts(), fontsize='22') # legend text
-    plt.setp(ax.get_legend().get_title(), fontsize='27') # legend title
-g.despine(left=True)
-plt.title('Distribution of Sale Price')
-g.set(xlabel='Sale Price (USD)')
-g.set(ylabel='Gross Square Feet')
-plt.savefig('fig2.pdf')
+hist = sns.distplot(data[price])
+plt.title('Histogram of Sale Price')
+plt.xlabel('Sale Price (USD)')
+plt.ylabel('Normalized Frequency')
+plt.savefig('fig1.pdf')
 ```
+&nbsp;
+
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
     Figure 03: Raw Scatterplot Land
@@ -216,7 +205,20 @@ plt.savefig('fig2.pdf')
     Figure 06: Cleaned Scatterplot Gross
 </p>
 
-&nbsp;
+```
+#Plotting ScatterPlot for each SALE PRICE distribution
+plt.figure()
+sns.set(font_scale=3.1)
+g = sns.lmplot(data=data, x=price, y=gross, hue=location, fit_reg=False, size = 10.5, scatter_kws={'s':135}, legend_out = False)
+for ax in g.axes.flat:
+    plt.setp(ax.get_legend().get_texts(), fontsize='22') # legend text
+    plt.setp(ax.get_legend().get_title(), fontsize='27') # legend title
+g.despine(left=True)
+plt.title('Distribution of Sale Price')
+g.set(xlabel='Sale Price (USD)')
+g.set(ylabel='Gross Square Feet')
+plt.savefig('fig2.pdf')
+```
 
 &nbsp;
 
@@ -232,8 +234,6 @@ plt.savefig('fig2.pdf')
     Figure 08: Cleaned Sales Price Boxplot
 </p>
 
-&nbsp;
-
 ```
 #Plotting BoxPlot for SALE PRICE
 plt.figure()
@@ -245,7 +245,6 @@ box.set(xlabel='Sale Price (US)')
 plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
 plt.savefig('fig3.pdf')
 ```
-
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png">
     Figure 09: Raw Pairplot
