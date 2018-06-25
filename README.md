@@ -192,14 +192,14 @@ plt.savefig('fig2.pdf')
 ```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
-    Figure 03: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
+    Figure 03: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
 </p>
 
 &nbsp;
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
-    Figure 04: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
+    Figure 04: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
 </p>
 
 ```
@@ -212,6 +212,19 @@ plt.title('Boxplot of Sale Price')
 box.set(xlabel='Sale Price (US)')
 plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
 plt.savefig('fig3.pdf')
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned.png">
+    Figure 03: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
+</p>
+
+&nbsp;
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned.png">
+    Figure 04: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
+</p>
+
 
 #Plotting PairPlot for SALE PRICE on GROSS SQUARE FEET and LAND SQUARE FEET
 plt.figure()
