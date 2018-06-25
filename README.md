@@ -192,14 +192,14 @@ plt.savefig('fig2.pdf')
 ```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png">
-    Figure 03: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
+    Figure 03: Raw Scatterplot Land
 </p>
 
 &nbsp;
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
-    Figure 04: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
+    Figure 04: Raw Scatterplot Gross
 </p>
 
 ```
@@ -215,14 +215,14 @@ plt.savefig('fig3.pdf')
 ```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png">
-    Figure 05: Cleaned Scatterplot - Sale Price w.r.t. Land Square Footage
+    Figure 05: Cleaned Scatterplot Land
 </p>
 
 &nbsp;
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned1.png">
-    Figure 04: Cleaned Scatterplot - Sale Price w.r.t. Gross Square Footage
+    Figure 06: Cleaned Scatterplot Gross
 </p>
 
 ```
@@ -235,14 +235,14 @@ plt.savefig('fig4.pdf')
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png">
-    Figure 05: Raw Pairplot
+    Figure 07: Raw Pairplot
 </p>
 
 &nbsp;
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned1.png">
-    Figure 06: Cleaned Pairplot
+    Figure 08: Cleaned Pairplot
 </p>
 
 ```
