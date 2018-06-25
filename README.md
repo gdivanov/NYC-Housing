@@ -1,7 +1,7 @@
 # NYC-Housing Predictions
 Visualizing and modeling the correlation between features in New York Department of Finance data set.
 
-We want to test a few models in our analysis - namely Random Forest, Linear/Lasso/Ridge regression types.
+We want to test a few models in our analysis - namely Random Forest Decision Tree, Lasso, and Ridge regression.
 Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
 
 ## I) Module Importing
@@ -449,31 +449,6 @@ On one hand if we have a higher k value then we have a higher computational time
 
 We choose k = 5 because we only have ~26,000 data points. However, you should always note how much data you have to work with. Since we deleted a lot of our data we aren't left with a whole lot - so choosing k = 5 seems reasonable.
 
-### Elastic Net Regression Model
-
-It's very __'fitting'__ if we begin with the most common regression model - Linear Regression. 
-
-```
-#Fit Linear Regressor to training data
-linreg = LinearRegression()
-linreg.fit(X_train, y_train)
-
-#Predict SALE PRICE labels and compute 5-Fold Cross-Validation
-y_pred = linreg.predict(X_test)
-linreg_cv = cross_val_score(linreg, X_train, y_train, cv=5)
-```
-Computing our coefficient of determination (R^2), Root Mean Square Error, and Mean of the CV-Score we get:
-
-```
-print("R^2: {}".format(linreg.score(X_test, y_test)))
-rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-print("Root Mean Squared Error: {}".format(rmse))
-
-print("Mean 5-Fold CV Score: {}".format(np.mean(linreg_cv)))
-# Print the 5-fold cross-validation scores
-print(linreg_cv)
-```
-
 ### Ridge Regression Model
 
 For Ridge Regression we must choose a suitible value for our regularization parameter 'alpha'. This value allows us to scale the coefficients used to smoothen our model out. However, we need to find these values to see which one will fit our coefficients well.
@@ -498,20 +473,40 @@ for a in alphas:
     ridge.fit(X, y)
     coefs.append(ridge.coef_)
 np.shape(coefs)
+```
+We have a vector of coefficients which is (100, 41) which is the length of columns of total alpha values by the rows for all of our features.
 
+I want to visualize how these alpha values change the weight of each coefficient as the value of alpha increases.
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_6_Coeff_Ridge.png">
+    Figure 14: Coefficient Ridge Weights as function of Alpha
+</p>
+
+Because there are 41 features in our modeling set I refrain from labeling them on a legend but we can see that as we choose higher values of alpha the weights of our features in the model decrease - some more rapidly than others.
+
+```
 #Plot regularization parameters for Ridge
 ax = plt.gca()
+sns.set(font_scale=2.3)
 ax.plot(alphas, coefs)
 ax.set_xscale('log')
 plt.axis('tight')
-plt.xlabel('alpha')
-plt.ylabel('weights')
-
+plt.title(r'Ridge Coefficient Weights with Changing $\alpha$', fontsize=32)
+plt.xlabel(r'Regularization Parameters $\alpha$', fontsize=27)
+plt.ylabel('Weights', fontsize=27)
+plt.xlim((min(alphas), max(alphas))) 
+```
+Now running to fit the best of these values of alpha are best we use the RidgeCV tool from Scikit-Learn.
+```
 #Calculate best alpha with smallest cross-validation error for Ridge
 ridgecv = RidgeCV(alphas=alphas, scoring='mean_squared_error', normalize=True)
 ridgecv.fit(X_train, y_train)
 ridgecv.alpha_
+```
+This gives us a value of alpha = 0.4348745013088917. Let's put it into or regressor and fit the model.
 
+```
 #Update Ridge regressor using best alpha
 ridge = Ridge(alpha=ridgecv.alpha_, normalize=True)
 
@@ -535,6 +530,18 @@ print(ridge_cv)
 ridge.fit(X,y)
 pd.Series(ridge.coef_, index=X.columns)
 ```
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="445" height="415">
+    Figure 15: Ridge Regression Metric Scores
+</p>
+
+Coefficients of determination at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="445" height="415">
+    Figure 16: Ridge Regression Coefficient Weights
+</p>
+
 ### Lasso Regression Model
 
 Just like Ridge Regression, Lasso tries to smoothen out our model using regularization. However, Lasso may allow smaller contributions that are negligible to be zeroed out completely.
@@ -551,7 +558,15 @@ for a in alphas:
     lasso.set_params(alpha=a)
     lasso.fit(scale(X_train), y_train)
     coefs.append(lasso.coef_)
-    
+```
+Again we take a look at how the alpha changes the weights on a Lasso model.
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_6_Coeff_Lasso.png" width="445" height="415">
+    Figure 17: Coefficient Lasso Weights as function of Alpha
+</p>
+
+```
 #Plot regularization parameters for Lasso
 ax = plt.gca()
 ax.plot(alphas*2, coefs)
@@ -559,6 +574,7 @@ ax.set_xscale('log')
 plt.axis('tight')
 plt.xlabel('alpha')
 plt.ylabel('weights')
+```
 
 #Calculate best alpha with smallest cross-validation error for Lasso
 lassocv = LassoCV(alphas=None, max_iter=100000, cv=5)
