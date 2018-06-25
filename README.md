@@ -371,18 +371,8 @@ data[gross] = StandardScaler().fit_transform(np.log(data[gross]).reshape(-1,1))
 data[land] = StandardScaler().fit_transform(np.log(data[land]).reshape(-1,1))
 data[age] = StandardScaler().fit_transform(np.log(data[age]).reshape(-1,1))
 
-#Plot the new Standardized SALE PRICE
-sns.distplot(data[price])
-plt.title('Standardized Histogram of Sale Price')
-plt.show()
-
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
-
-#Plot the new Standardized SALE PRICE
-sns.distplot(data[price])
-plt.title('Standardized Histogram of Sale Price')
-plt.show()
 ```
 
 ### One Hot Encoding for Categorical Data
