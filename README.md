@@ -212,7 +212,7 @@ plt.title('Boxplot of Sale Price')
 box.set(xlabel='Sale Price (US)')
 plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
 plt.savefig('fig3.pdf')
-
+```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned.png">
     Figure 03: Raw Scatterplot - Sale Price w.r.t. Land Square Footage
@@ -225,7 +225,7 @@ plt.savefig('fig3.pdf')
     Figure 04: Raw Scatterplot - Sale Price w.r.t. Gross Square Footage
 </p>
 
-
+```
 #Plotting PairPlot for SALE PRICE on GROSS SQUARE FEET and LAND SQUARE FEET
 plt.figure()
 sns.set(font_scale=2.3)
