@@ -64,6 +64,14 @@ residential = 'RESIDENTIAL UNITS'
 build_class = 'BUILDING CLASS CATEGORY'
 total = 'TOTAL UNITS'
 ```
+
+To see our initial starting point let's check the size of our data set:
+
+```
+data.info()
+```
+We see that the dataframe is `(84548, 22)`. We'll obviously need to do some cleaning, though.
+
 The data collector mentions that they've listed the city locations in BOROUGH as numerical values rather than categorical.
 ```
 1 = Manhattan, 2 = Bronx, 3 = Brooklyn, 4 = Queens, and 5 = Staten Island 
