@@ -156,7 +156,6 @@ Some of the more interesting plots we want to use are histograms, scatterplots, 
 
 Since the code written for both plots is the same I will refrain from writing each more than once but show the raw version first and cleaned version second.
 
-
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png">
     Figure 01: Raw Histogram 
