@@ -564,6 +564,8 @@ Again we take a look at how the alpha changes the weights on a Lasso model.
         Figure 17: Coefficient Lasso Weights as function of Alpha
 </p>
 
+This behaviour is 'quickly' convergent compared to the Ridge regressor and only very small values of alpha seem to work here.
+
 ```
 #Plot regularization parameters for Lasso
 ax = plt.gca()
@@ -572,8 +574,11 @@ ax.set_xscale('log')
 plt.axis('tight')
 plt.xlabel('alpha')
 plt.ylabel('weights')
-```
 
+```
+We want to iterate for Lasso at a maximum value of 10,000 times.
+
+```
 #Calculate best alpha with smallest cross-validation error for Lasso
 lassocv = LassoCV(alphas=None, max_iter=100000, cv=5)
 lassocv.fit(X_train, y_train)
@@ -598,6 +603,18 @@ print(lasso_cv)
 #Show Lasso coefficients
 pd.Series(lasso.coef_, index=X.columns)
 ```
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="435" height="95">
+</p>
+
+Coefficients of determination at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Values.png" width="540" height="490">
+</p>
+
+
 ### Random Forest Model
 
 Last but not least we want to use one decision tree type of model to make some regressive predictions as well.
