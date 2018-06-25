@@ -542,7 +542,7 @@ pd.Series(ridge.coef_, index=X.columns)
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="435" height="65">
 </p>
 
-Coefficients of determination at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
+Coefficients of determination at about 0.401 is not bad but this is still not the most tuned model we could come up with so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
 
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="590" height="590">
