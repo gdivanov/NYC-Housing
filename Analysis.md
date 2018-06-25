@@ -148,6 +148,8 @@ data = data[(data[total] > 0) & (data[total] < 60)]
 data = data[data[total] == data[commercial] + data[residential]]
 ```
 
+Of course choosing these restraints are completely arbitrary but I chose values that made sense to me.
+
 ## III) Data Visualization
 
 We want to make use of a number of various plots to inspect the distributions between features in our data set.
