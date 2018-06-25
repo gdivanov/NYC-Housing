@@ -168,9 +168,13 @@ plt.savefig('fig1.pdf')
 ```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png" "hi">
-    Hello
+    **Figure 01:** Raw Histogram 
 </p>
 
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Uncleaned.png" "hi">
+    **Figure 02:** Cleaned Histogram
+</p>
 
 As you can see the raw data 
 
