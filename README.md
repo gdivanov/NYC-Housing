@@ -531,7 +531,7 @@ ridge.fit(X,y)
 pd.Series(ridge.coef_, index=X.columns)
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="245" height="315">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="445" height="115">
     Figure 15: Ridge Regression Metric Scores
 </p>
 
