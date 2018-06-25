@@ -180,28 +180,28 @@ plt.savefig('fig1.pdf')
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png" width="945" height="455">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Uncleaned.png" width="915" height="485">
     Figure 03: Raw Scatterplot Land
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Uncleaned.png" width="915" height="485">
     Figure 04: Raw Scatterplot Gross
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png" width="915" height="485">
     Figure 05: Cleaned Scatterplot Land
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned1.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_2_Scatter_(SalePrice-Gross)_Cleaned1.png" width="915" height="485">
     Figure 06: Cleaned Scatterplot Gross
 </p>
 
@@ -223,14 +223,14 @@ plt.savefig('fig2.pdf')
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_Boxplot_SalePrice_Uncleaned.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_Boxplot_SalePrice_Uncleaned.png" width="915" height="485">
     Figure 07: Raw Sales Price Boxplot
 </p>
 
 &nbsp;
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_Boxplot_SalePrice_Cleaned1.png">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_Boxplot_SalePrice_Cleaned1.png" width="915" height="485">
     Figure 08: Cleaned Sales Price Boxplot
 </p>
 
@@ -271,8 +271,7 @@ If we dig further we can also visualize these correlations with respect to their
 
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/corr_matrix1.png">
-    Figure 11: Correlation Matrix
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/corr_matrix1.png" width="715" height="585">
 </p>
 
 ```
