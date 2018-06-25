@@ -6,7 +6,7 @@ Note that I include an explanation for Random Forest importance biases in the Sc
 
 ## I) Module Importing
 
-First we import the modules in Python we want to use for the analysis and the modelling.
+First we import the modules in Python we want to use for the analysis and the modeling.
 
 We're mostly interested in Pandas for ease of dataframe manipulation, Numpy for matrix analysis and correlation, Matplotlib for visualization, and Scikit-Learn for our supervised learning tools.
 
@@ -43,9 +43,9 @@ from sklearn.metrics import accuracy_score
 
 ## II) Data Cleaning & Inspection
 
-Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page (or on the main page of my NYC Housing GitHub as "nyc-rolling-sales.csv" and then inspect the types that we have. Also, we need to drop some values that are either outliers or 0/null-types.
+Next we want to upload our data set which can be found at: https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page (or on the main page of my NYC Housing GitHub as "nyc-rolling-sales.csv".
 
-Before we do that it's important to note that we are really interested mostly in the price, square footage, location, and the overall age of the houses and how these correlate. So we will mostly be working on cleaning and preparing these values for analysis and modelling.
+Before we do that it's important to note that we are really interested mostly in the price, square footage, location, and the overall age of the houses and how these correlate. So we will mostly be working on cleaning and preparing these values for modeling later.
 
 ```
 #Upload data set
