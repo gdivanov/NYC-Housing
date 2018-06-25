@@ -66,7 +66,12 @@ residential = 'RESIDENTIAL UNITS'
 build_class = 'BUILDING CLASS CATEGORY'
 total = 'TOTAL UNITS'
 ```
-The data collector mentions that they've listed the city locations in BOROUGH as 1 = Manhattan, 2 = Bronx, 3 = Brooklyn, 4 = Queens, and 5 = Staten Island. So we rename these values inside the dataframe to match that.
+The data collector mentions that they've listed the city locations in BOROUGH as numerical values rather than categorical.
+```
+1 = Manhattan, 2 = Bronx, 3 = Brooklyn, 4 = Queens, and 5 = Staten Island 
+```
+
+So we rename these values inside the dataframe to match that.
 ```
 #Matching location data in BOROUGH to numerical values
 data[location] = data[location].replace({1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island'})
