@@ -175,13 +175,12 @@ Since the code written for both plots is the same I will refrain from writing ea
 
 ```
 #Plot SALE PRICE Histogram
-plt.figure()
 sns.set(font_scale=3.1)
 hist = sns.distplot(data[price])
 plt.title('Histogram of Sale Price')
 plt.xlabel('Sale Price (USD)')
 plt.ylabel('Normalized Frequency')
-plt.savefig('fig1.pdf')
+plt.show()
 ```
 &nbsp;
 
@@ -213,7 +212,6 @@ plt.savefig('fig1.pdf')
 
 ```
 #Plotting ScatterPlot for each SALE PRICE distribution
-plt.figure()
 sns.set(font_scale=3.1)
 g = sns.lmplot(data=data, x=price, y=gross, hue=location, fit_reg=False, size = 10.5, scatter_kws={'s':135}, legend_out = False)
 for ax in g.axes.flat:
@@ -223,7 +221,7 @@ g.despine(left=True)
 plt.title('Distribution of Sale Price')
 g.set(xlabel='Sale Price (USD)')
 g.set(ylabel='Gross Square Feet')
-plt.savefig('fig2.pdf')
+plt.show()
 ```
 
 &nbsp;
@@ -242,14 +240,13 @@ plt.savefig('fig2.pdf')
 
 ```
 #Plotting BoxPlot for SALE PRICE
-plt.figure()
 sns.set(font_scale=3.1)
 box = sns.boxplot(x=price, data=data, linewidth=5, fliersize=12)
 plt.ticklabel_format(style='plain', axis='x')
 plt.title('Boxplot of Sale Price')
 box.set(xlabel='Sale Price (US)')
 plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
-plt.savefig('fig3.pdf')
+plt.show()
 ```
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png">
@@ -268,7 +265,7 @@ plt.savefig('fig3.pdf')
 plt.figure()
 sns.set(font_scale=2.3)
 pair = sns.pairplot(data, vars=[price, gross, land], size=5, hue=location, aspect=1.2)
-plt.savefig('fig4.pdf')
+plt.show()
 ```
 
 As you can quite obviously tell the distributions for every plot from Uncleaned to Cleaned are beyond noticable. Not only are we able to visualize the distributions of the sales price but we're also able to better discern what the distributions look like for the housing locations as well.
