@@ -202,17 +202,8 @@ plt.savefig('fig2.pdf')
     Figure 04: Raw Scatterplot Gross
 </p>
 
-```
-#Plotting BoxPlot for SALE PRICE
-plt.figure()
-sns.set(font_scale=3.1)
-box = sns.boxplot(x=price, data=data, linewidth=5, fliersize=12)
-plt.ticklabel_format(style='plain', axis='x')
-plt.title('Boxplot of Sale Price')
-box.set(xlabel='Sale Price (US)')
-plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
-plt.savefig('fig3.pdf')
-```
+&nbsp;
+
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_1_Scatter_(SalePrice-Land)_Cleaned1.png">
     Figure 05: Cleaned Scatterplot Land
@@ -225,6 +216,48 @@ plt.savefig('fig3.pdf')
     Figure 06: Cleaned Scatterplot Gross
 </p>
 
+&nbsp;
+
+&nbsp;
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_Boxplot_SalePrice_Uncleaned.png">
+    Figure 07: Raw Sales Price Boxplot
+</p>
+
+&nbsp;
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_Boxplot_SalePrice_Cleaned1.png">
+    Figure 08: Cleaned Sales Price Boxplot
+</p>
+
+&nbsp;
+
+```
+#Plotting BoxPlot for SALE PRICE
+plt.figure()
+sns.set(font_scale=3.1)
+box = sns.boxplot(x=price, data=data, linewidth=5, fliersize=12)
+plt.ticklabel_format(style='plain', axis='x')
+plt.title('Boxplot of Sale Price')
+box.set(xlabel='Sale Price (US)')
+plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
+plt.savefig('fig3.pdf')
+```
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png">
+    Figure 09: Raw Pairplot
+</p>
+
+&nbsp;
+
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned1.png">
+    Figure 10: Cleaned Pairplot
+</p>
+
 ```
 #Plotting PairPlot for SALE PRICE on GROSS SQUARE FEET and LAND SQUARE FEET
 plt.figure()
@@ -233,17 +266,9 @@ pair = sns.pairplot(data, vars=[price, gross, land], size=5, hue=location, aspec
 plt.savefig('fig4.pdf')
 ```
 
-<p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Uncleaned.png">
-    Figure 07: Raw Pairplot
-</p>
+As you can quite obviously tell the distributions for every plot from Uncleaned to Cleaned are beyond noticable. Not only are we able to visualize the distributions of the sales price but we're also able to better discern what the distributions look like for the housing locations as well.
 
-&nbsp;
 
-<p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_4_PairPlot_Cleaned1.png">
-    Figure 08: Cleaned Pairplot
-</p>
 
 ```
 #Compute the correlation matrix
