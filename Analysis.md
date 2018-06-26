@@ -100,18 +100,15 @@ data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
 data[date] = pd.to_datetime(data[date], errors='coerce')
 ```
-
 Next, we always want to take care of null values, duplicates, and any other logic-oriented outliers to keep only what makes sense for an analysis.
 
 First we drop the duplicates.
-
 ```
 #Drop all duplicates except the last entry
 data = data.drop_duplicates(data.columns, keep='last')
 ```
 Next we drop null values for the features of interest.
 ```
-
 #Drop all null cases for our most important features; SALE PRICE, LAND SQUARE FEET AND GROSS SQUARE FEET
 data = data[data[land].notnull()] 
 data = data[data[gross].notnull()] 
