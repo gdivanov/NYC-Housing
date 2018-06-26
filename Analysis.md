@@ -506,7 +506,7 @@ plt.xlabel(r'Regularization Parameters $\alpha$', fontsize=27)
 plt.ylabel('Weights', fontsize=27)
 plt.xlim((min(alphas), max(alphas))) 
 ```
-Now running to fit the best of these values of alpha are best we use the RidgeCV tool from Scikit-Learn.
+Running Scikit-Learn's RidgeCV tool will allow us to find the best alpha value using the mean squared error minimization.
 ```
 #Calculate best alpha with smallest cross-validation error for Ridge
 ridgecv = RidgeCV(alphas=alphas, scoring='mean_squared_error', normalize=True)
