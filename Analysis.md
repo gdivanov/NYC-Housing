@@ -100,13 +100,6 @@ data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
 data[date] = pd.to_datetime(data[date], errors='coerce')
 ```
-&nbsp;
-<p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.jpg" width="445" height="415">
-</p>
-&nbsp;
-
-Much better.
 
 Next, we always want to take care of null values, duplicates, and any other logic-oriented outliers to keep only what makes sense for an analysis.
 
@@ -124,6 +117,13 @@ data = data[data[land].notnull()]
 data = data[data[gross].notnull()] 
 data = data[data[price].notnull()]
 ```
+
+&nbsp;
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.jpg" width="445" height="415">
+</p>
+&nbsp;
+
 Now we're in pretty good shape.
 
 It's time to start thinking about ranges on all of our values. Does it make sense to plot $500,000,000 homes that only the king of Saudia Arabia can afford? Do they even exist?
