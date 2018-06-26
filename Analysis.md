@@ -1,8 +1,9 @@
 # NYC-Housing Predictions
-Visualizing and modeling the correlation between features in New York Department of Finance data set.
+Visualizing and modeling the correlation between features in New York Department of Finance data set and see which model should be chosen for future investigation.
 
-We want to test a few models in our analysis - namely Random Forest Decision Tree, Lasso, and Ridge regression.
-Note that I include an explanation for Random Forest importance biases in the Scikit-Learn library provided by http://explained.ai/rf-importance/index.html and its packages.
+We want to test 3 models in our analysis - Random Forest Decision Tree, Lasso, and Ridge regression.
+
+Note that the next step of this analysis is to include an explanation for Random Forest Importance biases in the default Scikit-Learn library. The Random Forest case study will be made possible by http://explained.ai/rf-importance/index.html and the packages given.
 
 ## I) Module Importing
 
