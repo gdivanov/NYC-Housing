@@ -678,5 +678,5 @@ So,
 
 **2** The importances seemed to suggest that the Gross Square Footage of the building far outweighs the rest of the categories. This would need further investigation because if there are some issues with the default importances measures by Scikit-Learn (which is something I investigate in my next study) then further tuning is necessary.
 
-**3** A lot of data was deleted - roughly a whopping **57%** from what we originally had before cleaning. This means possible alterations to the data could be made to keep more of it for better results
+**3** A lot of data was deleted - roughly a whopping **65%** from what we originally had before cleaning. This means possible alterations to the data could be made to keep more of it for better results
 
