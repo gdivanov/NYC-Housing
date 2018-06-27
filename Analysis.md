@@ -88,7 +88,7 @@ Doing some inspection to the data already shows that it came pre-processed as mo
 
 &nbsp;
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="445" height="415">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo0.jpg" width="445" height="415">
 </p>
 &nbsp;
 
@@ -101,6 +101,12 @@ data[gross] = pd.to_numeric(data[gross], errors='coerce')
 data[land]= pd.to_numeric(data[land], errors='coerce')
 data[date] = pd.to_datetime(data[date], errors='coerce')
 ```
+&nbsp;
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="445" height="415">
+</p>
+&nbsp;
+
 Next, we always want to take care of null values, duplicates, and any other logic-oriented outliers to keep only what makes sense for an analysis.
 
 First we drop the duplicates.
@@ -537,7 +543,7 @@ ridge.fit(X,y)
 pd.Series(ridge.coef_, index=X.columns)
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.png" width="435" height="65">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Scores.jps" width="435" height="65">
 </p>
 
 Coefficients of determination at about 0.401 is not bad but this is still not the most tuned model we could come up with so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
