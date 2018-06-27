@@ -365,6 +365,8 @@ data[age] = StandardScaler().fit_transform(np.log(data[age]).reshape(-1,1))
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
 ```
+Now plotting the standardized form of our sale price histogram below.
+
 <p align="center"> 
 <img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Cleaned_Standardized.png">
     Figure 13: Standardized Sales Price Histogram
@@ -377,7 +379,7 @@ plt.title('Standardized Histogram of Sale Price')
 plt.xlabel('Sale Price (USD)')
 plt.ylabel('Normalized Frequency')
 plt.show()
-
+```
 ### One Hot Encoding for Categorical Data
 
 We also want to include the categorical data in our model - Location, Building Class Category - so we need to interpret to the machine in some way. But the machine can't tell what 'Bronx" or what a 'RENTAL' is so we need to tell it what it is. One of the ways we can do this is by interpreting categories numerically; something the machine **can** read.
