@@ -459,7 +459,7 @@ Before we begin running our data through we need to choose a k value for a cross
 
 On one hand if we have a higher k value then we have a higher computational time, higher variance, and lower bias. If we have a smaller k value then we have a lower computational time, lower variance, and higher bias.
 
-We choose k = 5 because we only have ~26,000 data points. However, you should always note how much data you have to work with. Since we deleted a lot of our data we aren't left with a whole lot - so choosing k = 5 seems reasonable.
+We choose k = 5 because we only have ~30,000 data points. However, you should always note how much data you have to work with. Since we deleted a lot of our data we aren't left with a whole lot - so choosing k = 5 seems reasonable.
 
 ## Ridge Regression Model
 
