@@ -338,21 +338,6 @@ We're almost at the 'cool' part.
 
 Because we are utilizing certain regression models in training our data - Lasso and Ridge - and because our data is of differing varieties and magnitudes - Price (USD), Square Footage, Units, Age - we need to be working with standardized data. This means we need to center our price distribution (dependant variable) along a zero mean and transform all the data to a logarithmic scale like below for our sale price.
 
-<p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Cleaned_Standardized.png">
-    Figure 13: Standardized Sales Price Histogram
-</p>
-
-```
-#Plot the new Standardized SALE PRICE
-sns.distplot(data_model[price])
-plt.title('Standardized Histogram of Sale Price')
-plt.xlabel('Sale Price (USD)')
-plt.ylabel('Normalized Frequency')
-plt.show()
-```
-That's lookin' **real nice.**
-
 This will help our ML tools in Scikit-Learn perform better because if we've scaled our features our models will converge faster - at least that's the hope.
 
 One thing to note is that scaling data for logarithmic data means that we can't have any zeroes in the set because log(0) is undefined. Instead we can treat those zeroes in the original numerical space as zeroes in logarithm space by setting all zero values to 1 since log(1) = 0. So then we have to add 1 to all the columns that have minimum values of 0 or else we're going to get errors.
@@ -380,6 +365,18 @@ data[age] = StandardScaler().fit_transform(np.log(data[age]).reshape(-1,1))
 #Standardizing and transforming into logarithmic scale
 data[price] = StandardScaler().fit_transform(np.log(data[price]).reshape(-1,1))
 ```
+<p align="center"> 
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_3_Histogram_SalePrice_Cleaned_Standardized.png">
+    Figure 13: Standardized Sales Price Histogram
+</p>
+
+```
+#Plot the new Standardized SALE PRICE
+sns.distplot(data[price])
+plt.title('Standardized Histogram of Sale Price')
+plt.xlabel('Sale Price (USD)')
+plt.ylabel('Normalized Frequency')
+plt.show()
 
 ### One Hot Encoding for Categorical Data
 
