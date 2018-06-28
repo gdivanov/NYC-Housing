@@ -617,7 +617,7 @@ pd.Series(lasso.coef_, index=X.columns)
 ```
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="435" height="65">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="415" height="65">
 </p>
 
 Coefficient of determination score at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
@@ -657,7 +657,7 @@ print(rf_cv)
 ```
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Scores.png" width="435" height="65">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Scores.png" width="415" height="65">
 </p>
 
 
@@ -668,7 +668,7 @@ importance = pd.DataFrame(list(zip(X_train.columns, np.transpose(rf_reg.feature_
 print(importance)
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="430" height="590">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="420" height="590">
 </p>
 
 ## VI) Conclusions
