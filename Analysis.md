@@ -124,7 +124,7 @@ data = data[data[price].notnull()]
 
 &nbsp;
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.png" width="440" height="415">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.png" width="450" height="415">
 </p>
 &nbsp;
 
