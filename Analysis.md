@@ -668,7 +668,7 @@ importance = pd.DataFrame(list(zip(X_train.columns, np.transpose(rf_reg.feature_
 print(importance)
 ```
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="450" height="590">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_8_Coeff_RandomForest_Importances.png" width="430" height="590">
 </p>
 
 ## VI) Conclusions
