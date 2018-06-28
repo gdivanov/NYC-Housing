@@ -617,7 +617,7 @@ pd.Series(lasso.coef_, index=X.columns)
 ```
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="400" height="65">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="4385" height="65">
 </p>
 
 Coefficient of determination score at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
