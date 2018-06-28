@@ -88,7 +88,7 @@ Doing some inspection to the data already shows that it came pre-processed as mo
 
 &nbsp;
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo0.jpg" width="425" height="415">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo0.jpg" width="400" height="415">
 </p>
 &nbsp;
 
@@ -103,7 +103,7 @@ data[date] = pd.to_datetime(data[date], errors='coerce')
 ```
 &nbsp;
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="425" height="415">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo1.jpg" width="400" height="415">
 </p>
 &nbsp;
 
@@ -124,7 +124,7 @@ data = data[data[price].notnull()]
 
 &nbsp;
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.png" width="425" height="415">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/datainfo2.png" width="400" height="415">
 </p>
 &nbsp;
 
