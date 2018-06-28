@@ -549,7 +549,7 @@ pd.Series(ridge.coef_, index=X.columns)
 Coefficients of determination at about 0.401 is not bad but this is still not the most tuned model we could come up with so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="590" height="590">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Ridge_Values.png" width="550" height="590">
 </p>
 
 ## Lasso Regression Model
@@ -617,13 +617,13 @@ pd.Series(lasso.coef_, index=X.columns)
 ```
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="4385" height="65">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Scores.png" width="485" height="65">
 </p>
 
 Coefficient of determination score at about 0.401 is not bad but this is an untuned model so it's to be expected. Now let's take a look at the coefficients found from our alpha value.
 
 <p align="center"> 
-<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Values.png" width="590" height="590">
+<img src="https://github.com/gdivanov/NYC-Housing/blob/master/Figures/Figure_7_Coeff_Lasso_Values.png" width="550" height="590">
 </p>
 
 Surprisingly enough the mean square error is very close to that of the Ridge. I am not entirely sure why that is but it is something for a later investigation.
