@@ -1,5 +1,5 @@
 # NYC-Housing Predictions
-Visualizing and modeling the correlation between features in New York Department of Finance data set and see which model should be chosen for future investigation.
+In this study I want to visualize and model the correlation between features in New York Department of Finance data set and see which model should be chosen for future investigation.
 
 We want to test 3 models in our analysis - Random Forest Decision Tree, Lasso, and Ridge regression.
 
