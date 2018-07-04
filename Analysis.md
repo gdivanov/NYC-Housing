@@ -308,7 +308,7 @@ cmap = sns.diverging_palette(220, 20, sep=20, as_cmap=True)
 sns.heatmap(corr, mask=mask, square=True, linewidths=.5, annot=True, cmap=cmap)
 plt.yticks(rotation=0)
 plt.xticks(rotation=90)
-plt.title('Correlation Matrix for New York Housing Variables 2017-2018')
+plt.title('Correlation Matrix for New York Housing')
 plt.tight_layout()
 plt.show()
 ```
