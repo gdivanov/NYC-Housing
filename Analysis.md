@@ -334,7 +334,7 @@ It would seem as though Manhattan definitely holds the place for highest cost of
 
 What's really interesting is the correlation matrix.
 
-We'd need a real-estate specialist on board to help us make sense of the fact that the age of the building is much higher magnitude in correlation to the price as the land or gross square footage; not something I would have expected.
+We'd need a real-estate specialist on board to help us make sense of the fact that the age of the building does not correlate very strongly with the sale price; not something I would have expected.
 
 
 ## IV) Tranforming Data for Model Building
